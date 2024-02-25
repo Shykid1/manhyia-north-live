@@ -2,7 +2,7 @@
 const Paliamentary = () => {
   return (
     <div>
-      
+      Paliamentary page
     </div>
   )
 }
