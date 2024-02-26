@@ -19,6 +19,10 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.models.User || mongoose.model("User", userSchema);
 
 const adminSchema = new mongoose.Schema({
+  image: {
+    type: String,
+    trim: true
+  },
   firstname: {
     type: String,
     required: true
