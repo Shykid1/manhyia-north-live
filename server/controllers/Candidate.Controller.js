@@ -1,7 +1,7 @@
 import CandidateModel from '../models/Candidate.model.js'
 
 // Create a new candidate
-export async function createCandidate (req, res) {
+async function createCandidate (req, res) {
   const {
     image,
     fullname,
@@ -31,17 +31,17 @@ export async function createCandidate (req, res) {
 }
 
 // Get all Candidtates
-export async function getAllCandidates (req, res) {
+async function getAllCandidates (req, res) {
   try {
-    const candidte = await CandidateModel.find();
-    res.status(200).json(candidte)
+    const candidtes = await CandidateModel.find();
+    res.status(200).json(candidtes)
   } catch (error) {
     res.status(500).json({error: 'Failed to fetch all Candidates'})
   }
 }
 
 // Get a Candidate by Id
-export async function getCandidateById (req, res) {
+async function getCandidateById (req, res) {
   try {
     const candidate = await CandidateModel.findById(req.params.id)
     if (!candidate) {
@@ -55,7 +55,7 @@ export async function getCandidateById (req, res) {
 }
 
 // Update a Candidate by Id
-export async function updateCandidateById (req,res) {
+async function updateCandidateById (req,res) {
   const {
     image,
     fullname,
@@ -74,15 +74,18 @@ export async function updateCandidateById (req,res) {
       throw new Error('Candidate not found')
     }
 
-    candidate.image = image
-    candidate.fullname = fullname
-    candidate.party = party
-    candidate.age = age
-    candidate.biography = biography
-    candidate.manifesto = manifesto
-    candidate.candidacy = candidacy
+    Object.assign(candidate, {
+      image,
+      fullname,
+      party,
+      age,
+      biography,
+      manifesto,
+      candidacy
+    })
 
     await candidate.save();
+    
     res.status(201).json(candidate)
   } catch (error) {
     res.status(500).json({error: 'Failed to update the Candidate'})
@@ -90,7 +93,7 @@ export async function updateCandidateById (req,res) {
 }
 
 // Delete a Candidate by Id
-export async function deleteCandidateById (req, res) {
+async function deleteCandidateById (req, res) {
   try {
     const candidate = await CandidateModel.findById(req.params.id)
 
@@ -98,8 +101,20 @@ export async function deleteCandidateById (req, res) {
       res.status(404)
       throw new Error('Candidate not found')
     }
+    
     await CandidateModel.deleteOne({_id: req.params.id})
+
+    res.status(204).send()
   } catch (error) {
+    console.error(error)
     res.status(500).json({error: 'Failed to delete Candidate'})
   }
+}
+
+export default {
+  createCandidate,
+  getAllCandidates,
+  getCandidateById,
+  updateCandidateById,
+  deleteCandidateById
 }

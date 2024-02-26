@@ -7,6 +7,11 @@ const PollingStationSchema = new mongoose.Schema({
     required: true,
     trim: true
   },
+  pollingcode:{
+    type: String,
+    required: true,
+    trim: true
+  },
   location: {
     city:{
       type: String,
