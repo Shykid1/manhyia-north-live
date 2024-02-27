@@ -2,28 +2,8 @@ import CandidateModel from '../models/Candidate.model.js'
 
 // Create a new candidate
 async function createCandidate (req, res) {
-  const {
-    image,
-    fullname,
-    party,
-    age,
-    biography,
-    manifesto,
-    candidacy
-  } = req.body
-
   try {
-    const newCandidate = new CandidateModel({
-      image,
-      fullname,
-      party,
-      age,
-      biography,
-      manifesto,
-      candidacy
-    });
-
-    await newCandidate.save();
+    const newCandidate = await CandidateModel.create(req.body)
     res.status(201).json(newCandidate)
   } catch (error) {
     res.status(500).json({error: 'Failed to create new Candidate'})
@@ -56,37 +36,17 @@ async function getCandidateById (req, res) {
 
 // Update a Candidate by Id
 async function updateCandidateById (req,res) {
-  const {
-    image,
-    fullname,
-    party,
-    age,
-    biography,
-    manifesto,
-    candidacy
-  } = req.body
 
   try {
-    const candidate = await CandidateModel.findById(req.params.id)
+    const updatedCandidate = await CandidateModel.findByIdAndUpdate(req.params.id, req.body, {
+      new: true
+    })
 
-    if (!candidate) {
+    if (!updatedCandidate) {
       res.status(404)
       throw new Error('Candidate not found')
     }
-
-    Object.assign(candidate, {
-      image,
-      fullname,
-      party,
-      age,
-      biography,
-      manifesto,
-      candidacy
-    })
-
-    await candidate.save();
-    
-    res.status(201).json(candidate)
+    res.status(201).json(updatedCandidate)
   } catch (error) {
     res.status(500).json({error: 'Failed to update the Candidate'})
   }
@@ -95,16 +55,14 @@ async function updateCandidateById (req,res) {
 // Delete a Candidate by Id
 async function deleteCandidateById (req, res) {
   try {
-    const candidate = await CandidateModel.findById(req.params.id)
+    const deletedCandidate = await CandidateModel.findByIdAndDelete(req.params.id)
 
-    if (!candidate) {
+    if (!deletedCandidate) {
       res.status(404)
       throw new Error('Candidate not found')
     }
-    
-    await CandidateModel.deleteOne({_id: req.params.id})
 
-    res.status(204).send()
+    res.status(204).json({message: 'Candidate deleted successfully'})
   } catch (error) {
     console.error(error)
     res.status(500).json({error: 'Failed to delete Candidate'})

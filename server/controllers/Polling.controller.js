@@ -2,22 +2,8 @@ import PollingModel from '../models/Polling.model.js'
 
 // Create a polling station
 async function createPolling (req, res) {
-  const {
-    pollingname,
-    pollingcode,
-    location,
-    totalvotes
-  } = req.body
-
   try {
-    const newPolling = new PollingModel({
-      pollingname,
-      pollingcode,
-      location,
-      totalvotes
-    })
-
-    const polling = await newPolling.save()
+    const newPolling = await PollingModel.create(req.body)
     res.status(201).json(polling);
   } catch (error) {
     res.status(500).json({error: 'Failed creating Polling Station'})
@@ -52,31 +38,17 @@ async function getPollingById (req, res) {
 
 //Update polling station by Id
 async function updatePollingById (req, res) {
-  const {
-    pollingname,
-    pollingcode,
-    location,
-    totalvotes
-  } = req.body
-
   try {
-    const polling = await PollingModel.findById(req.params.id)
+    const updatedPolling = await PollingModel.findByIdAndUpdate(req.params.id, req.body, {
+      new: true
+    })
 
-    if (!polling) {
+    if (!updatedPolling) {
       res.status(404)
       throw new Error('Polling station not found')
     }
 
-    Object.assign(polling, {
-      pollingname,
-      pollingcode,
-      location,
-      totalvotes
-    })
-
-    await PollingModel.save()
-
-    res.status(201).json(polling)
+    res.status(201).json(updatedPolling)
   } catch (error) {
     res.status(500).json({error: 'Failed to update polling station'})
   }
@@ -85,16 +57,14 @@ async function updatePollingById (req, res) {
 // Delete Polling station
 async function deletePollingById (req, res) {
   try {
-    const polling = PollingModel.findById(req.params.id)
+    const deletedPolling = PollingModel.findByIdAndDelete(req.params.id)
 
-    if (!polling) {
+    if (!deletedPolling) {
       res.status(404)
       throw new Error('Polling station not found')
     }
 
-    await PollingModel.deleteOne({_id: req.params.id})
-
-    res.status(204).send()
+    res.status(204).json({message: 'Polling deleted successfully'})
   } catch (error) {
     console.error(error)
     res.status(500).json({error: 'Failed deleting Polling station'})

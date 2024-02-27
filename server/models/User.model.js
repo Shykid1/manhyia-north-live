@@ -21,7 +21,8 @@ const User = mongoose.models.User || mongoose.model("User", userSchema);
 const adminSchema = new mongoose.Schema({
   image: {
     type: String,
-    trim: true
+    trim: true,
+    default: ''
   },
   firstname: {
     type: String,
@@ -33,6 +34,7 @@ const adminSchema = new mongoose.Schema({
   },
   othername: {
     type: String,
+    default: ''
   },
   userId: {
     type: mongoose.Types.ObjectId,
@@ -54,13 +56,15 @@ const agentSchema = new mongoose.Schema({
   },
   othername: {
     type: String,
+    trim: true,
+    default: ''
   },
   userId: {
     type: mongoose.Types.ObjectId,
     ref: "User",
     required: true
   },
-  pollingStaionId: {
+  pollingcode: {
     type: mongoose.Types.ObjectId,
     ref: "PollingStation",
     required: true
