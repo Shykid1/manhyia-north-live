@@ -67,7 +67,7 @@ async function deleteResultById (req, res) {
   }
 }
 
-export default {
+export {
   createResults,
   getAllResults,
   getResultsById,

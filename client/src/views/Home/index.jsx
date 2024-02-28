@@ -1,8 +1,14 @@
 
+import HeroSection from '../../components/Hero/HeroSecrion.jsx';
+import HomeContent from './content.jsx'
+import './Home.css'
+
+
 const Home = () => {
   return (
     <div>
-      Home page
+      <HeroSection/>
+      <HomeContent/>
     </div>
   )
 }

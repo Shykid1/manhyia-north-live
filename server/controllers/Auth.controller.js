@@ -155,4 +155,4 @@ const generateToken = (id) => {
   })
 }
 
-export default {createAdmin, createAgent, loginUser}
+export {createAdmin, createAgent, loginUser}

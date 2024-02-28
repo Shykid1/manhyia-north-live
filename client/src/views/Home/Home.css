@@ -1,0 +1,66 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+.liverecords{
+    padding: 5px;
+    height: 80px;
+    width: 100%;
+    background-color: var( --primary-green-light);
+}
+.recorddetail{
+    align-items: center;
+    /* gap: 7; */
+}
+.recorddetail p{
+}
+.icons{
+    font-size: 60px;
+}
+.subrecordstxt{
+    font-size: 12px;
+}
+.mainrecordstxt{
+    font-size: 13px;
+}
+.knowthemimg{
+    border-radius: 100%;
+    height: 150px;
+    aspect-ratio: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.432);
+}
+.captions{
+    padding-left: 80px;
+}
+.leading{
+    align-items: center;
+}
+.leading img{
+    height: 100px;
+    aspect-ratio: 1;
+}
+.leading h4{
+    font-size: 20px;
+}
+.leading h5{
+    font-size: 18px;
+}
+.progressbars{
+    width: 100%;
+    padding: 10px;
+}
+@media (max-width: 768px) {
+    .captions{
+        padding-left: 20px;
+    }
+    .leading{
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .leading h4{
+        font-size: 15px;
+    }
+    .leading h5{
+        font-size: 15px;
+    }
+}

@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico:wght@400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+P{
+  margin: 0;
+}
+
+:root {
+    --primary-color: #4b91ec;
+    --primary-text-color: #141414;
+    --primary-green: #022c06;
+    --primary-green-light: #83fa8f;
+    --secondary-color: #f7b329;
+  }
+.danger{
+  background-color: rgb(252, 122, 122);
+}
+.success{
+  background-color: var(--primary-green-light);
+  border-radius:  0 10px  10px 0  ;
+
+}
+.rounded-left{
+
+  border-radius:  10px 0 0 10px ;
+}
+.blue{
+  background-color: var(--primary-color);
+  border-radius:  10px 0 0 10px ;
+}
+
+  .flex-container {
+    display: flex;
+  }
+  .top-0{
+    top: 0;
+  }
+  .fixed{
+    position: fixed;
+  }
+  .sticky{
+    position: sticky;
+  }
+  .mainbodycontent{
+    width: calc(100% - 80px);
+    height: 100vh;
+    position: relative;
+    top: 0;
+    left: 80px;
+    z-index: -1;
+    padding: 0;
+  }
+
+  .center{
+    justify-content: center;
+    align-items: center;
+  }
+  .gap-10{
+    gap: 10px;
+  }
+  .gap-5{
+    gap: 5px;
+  }
+  .space-evenly {
+    justify-content: space-evenly;
+  }
+  .space-between {
+    justify-content: space-evenly;
+  }
+  .width-100{
+    width: 100%;
+  }
+  .mainbody{
+    padding: 30px 50px;
+  }
+  .btnelements{
+    border: 1px solid #f57ed0;
+    text-decoration: none;
+    color: #141414;
+    text-align: center;
+    border-radius: 20px;
+    width: 150px;
+    padding: 5px;
+    padding-inline: 10px;
+  }
+  .pad-top10-bottom20{
+    padding-top: 10;
+    padding-bottom: 20px;
+  }
+  .margin-bottom-10{
+    margin-bottom: 10px;
+  }
+
+  .rounded-50{
+    overflow: hidden;
+  }
+  .center-value{
+    text-align: center;
+  }
+  .stylishname{
+    font-family: 'Pacifico';
+    color: #D82852;
+  }
+  .mainheadline{
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .recorddetail h4{
+    font-size: 20px;
+  }
+  .footer{
+    height:278px ;
+    color: white;
+    background: #000000;
+  }
+  .footer img{
+    height: 100px;
+    aspect-ratio: 1;
+  }
+  .social_media{
+    font-size: 35px;
+    color: white;
+  }
+  .logincontainer{
+    height: 550px;
+    width: 100%;
+  }
+  .loginlogo{
+    font-size: 80px;
+    padding: 10px;
+    color: white;
+    background-color: var(--primary-text-color);
+    border-radius: 50%;
+  }
+  .submitbt{
+    width: 100%;
+  }
+
+  ::-webkit-scrollbar {
+    width: 7px;
+    background-color: transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    width: 5px;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    .mainbody{
+    padding: 20px 10px;
+
+    }
+    .mainheadline{
+        font-size: 12px;
+    }
+    .btnelements{
+        width: 140px;
+    }
+    .btnsindicators{
+        gap: 7px;
+    }
+    .knowthem{
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+  }

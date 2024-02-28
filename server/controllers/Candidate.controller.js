@@ -69,7 +69,7 @@ async function deleteCandidateById (req, res) {
   }
 }
 
-export default {
+export {
   createCandidate,
   getAllCandidates,
   getCandidateById,

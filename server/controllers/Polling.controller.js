@@ -71,7 +71,7 @@ async function deletePollingById (req, res) {
   }
 }
 
-export default {
+export {
   createPolling,
   getAllPolling,
   getPollingById,
