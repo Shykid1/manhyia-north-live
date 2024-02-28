@@ -1,9 +1,9 @@
-import CandidateModel from '../models/Candidate.model.js'
+const Candidate = require('../models/Candidate.model.js')
 
 // Create a new candidate
-async function createCandidate (req, res) {
+exports.createCandidate = async (req, res) => {
   try {
-    const newCandidate = await CandidateModel.create(req.body)
+    const newCandidate = await Candidate.create(req.body)
     res.status(201).json(newCandidate)
   } catch (error) {
     res.status(500).json({error: 'Failed to create new Candidate'})
@@ -11,9 +11,9 @@ async function createCandidate (req, res) {
 }
 
 // Get all Candidtates
-async function getAllCandidates (req, res) {
+exports.getAllCandidates = async (req, res) => {
   try {
-    const candidtes = await CandidateModel.find();
+    const candidtes = await Candidate.find();
     res.status(200).json(candidtes)
   } catch (error) {
     res.status(500).json({error: 'Failed to fetch all Candidates'})
@@ -21,9 +21,9 @@ async function getAllCandidates (req, res) {
 }
 
 // Get a Candidate by Id
-async function getCandidateById (req, res) {
+exports.getCandidateById = async (req, res) => {
   try {
-    const candidate = await CandidateModel.findById(req.params.id)
+    const candidate = await Candidate.findById(req.params.id)
     if (!candidate) {
       res.status(404)
       throw new Error('Candidate not found')
@@ -35,10 +35,10 @@ async function getCandidateById (req, res) {
 }
 
 // Update a Candidate by Id
-async function updateCandidateById (req,res) {
+exports.updateCandidateById = async (req,res)  =>{
 
   try {
-    const updatedCandidate = await CandidateModel.findByIdAndUpdate(req.params.id, req.body, {
+    const updatedCandidate = await Candidate.findByIdAndUpdate(req.params.id, req.body, {
       new: true
     })
 
@@ -53,9 +53,9 @@ async function updateCandidateById (req,res) {
 }
 
 // Delete a Candidate by Id
-async function deleteCandidateById (req, res) {
+exports.deleteCandidateById = async (req, res) => {
   try {
-    const deletedCandidate = await CandidateModel.findByIdAndDelete(req.params.id)
+    const deletedCandidate = await Candidate.findByIdAndDelete(req.params.id)
 
     if (!deletedCandidate) {
       res.status(404)
@@ -67,12 +67,4 @@ async function deleteCandidateById (req, res) {
     console.error(error)
     res.status(500).json({error: 'Failed to delete Candidate'})
   }
-}
-
-export {
-  createCandidate,
-  getAllCandidates,
-  getCandidateById,
-  updateCandidateById,
-  deleteCandidateById
 }

@@ -1,4 +1,4 @@
-import mongoose, { model } from "mongoose";
+const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
   email: {
@@ -18,65 +18,8 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.models.User || mongoose.model("User", userSchema);
 
-const adminSchema = new mongoose.Schema({
-  image: {
-    type: String,
-    trim: true,
-    default: ''
-  },
-  firstname: {
-    type: String,
-    required: true
-  },
-  lastname: {
-    type: String,
-    required: true
-  },
-  othername: {
-    type: String,
-    default: ''
-  },
-  userId: {
-    type: mongoose.Types.ObjectId,
-    ref: "User",
-    required: true
-  }
-})
 
-const Admin = mongoose.models.Admin || mongoose.model("Admin", adminSchema)
 
-const agentSchema = new mongoose.Schema({
-  firstname: {
-    type: String,
-    required: true
-  },
-  lastname: {
-    type: String,
-    required: true
-  },
-  othername: {
-    type: String,
-    trim: true,
-    default: ''
-  },
-  userId: {
-    type: mongoose.Types.ObjectId,
-    ref: "User",
-    required: true
-  },
-  pollingcode: {
-    type: mongoose.Types.ObjectId,
-    ref: "PollingStation",
-    required: true
-  }
-},
-{timestamps: true} 
-)
 
-const Agent = mongoose.models.Agent || mongoose.model("Agent", agentSchema)
 
-module.exports = {
-  User,
-  Admin,
-  Agent
-}
+module.exports = User;

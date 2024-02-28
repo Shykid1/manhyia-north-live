@@ -1,10 +1,9 @@
-import mongoose from 'mongoose'
+const mongoose = require('mongoose');
 
 const candidateSchema = new mongoose.Schema({
   image:{
     type: String,
     trim: true,
-    required: true,
     default: ''
   },
   fullname: {
@@ -38,4 +37,4 @@ const candidateSchema = new mongoose.Schema({
 
 const Candidate = mongoose.models.Candidate || mongoose.model("Candidate", candidateSchema)
 
-module.exports = Candidate
+module.exports = Candidate;

@@ -1,14 +1,15 @@
-import {User, Admin, Agent} from '../models/User.model.js'
-import PollingModel from '../models/Polling.model.js'
-import bcrypt from 'bcrypt'
-import jwt from 'jsonwebtoken'
-import asyncHandler from 'express-async-handler'
-import * as dotenv from 'dotenv'
-
+const User = require('../models/User.model');
+const Admin = require('../models/Admin.model');
+const Agent = require('../models/Agent.model');
+const Polling = require('../models/Polling.model');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const asyncHandler = require('express-async-handler');
+const dotenv = require('dotenv');
 dotenv.config()
 
 // Register an admin
-async function createAdmin (req, res) {
+exports.createAdmin = async (req, res) => {
   const {
     image,
     firstname,
@@ -56,7 +57,7 @@ async function createAdmin (req, res) {
 }
 
 // Register an Agent
-async function createAgent (req, res) {
+exports.createAgent = async (req, res) => {
   try {
     if (req.user.role !== 'Admin') {
       res.status(400)
@@ -73,7 +74,7 @@ async function createAgent (req, res) {
       pollingCode
     } = req.body
 
-    const polling = await PollingModel.findOne({pollingcode: pollingCode})
+    const polling = await Polling.findOne({pollingcode: pollingCode})
     if (!polling) {
       res.status(404)
       throw new Error('Polling not found')
@@ -117,7 +118,7 @@ async function createAgent (req, res) {
 }
 
 // Login User
-const loginUser = asyncHandler(async (req, res) => {
+exports.loginUser = asyncHandler(async (req, res) => {
   try {
     const {email, password} = req.body
     User.findOne({email}).then(user => {
@@ -154,5 +155,3 @@ const generateToken = (id) => {
       expiresIn: '7d',
   })
 }
-
-export {createAdmin, createAgent, loginUser}

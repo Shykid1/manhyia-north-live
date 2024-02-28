@@ -1,9 +1,9 @@
-import PollingModel from '../models/Polling.model.js'
+const Polling = require('../models/Polling.model.js')
 
 // Create a polling station
-async function createPolling (req, res) {
+exports.createPolling = async (req, res) => {
   try {
-    const newPolling = await PollingModel.create(req.body)
+    const newPolling = await Polling.create(req.body)
     res.status(201).json(polling);
   } catch (error) {
     res.status(500).json({error: 'Failed creating Polling Station'})
@@ -11,9 +11,9 @@ async function createPolling (req, res) {
 }
 
 // Get all Polling stations
-async function getAllPolling (req, res) {
+exports.getAllPolling = async (req, res) => {
   try {
-    const polling = await PollingModel.find()
+    const polling = await Polling.find()
     res.status(200).json(polling);
   } catch (error) {
     res.status(500).json({error: 'Failed to fetch Polling stations'})
@@ -21,9 +21,9 @@ async function getAllPolling (req, res) {
 }
 
 // Get polling station by Id
-async function getPollingById (req, res) {
+exports.getPollingById = async (req, res) => {
   try {
-    const polling = await PollingModel.findById(req.params.id)
+    const polling = await Polling.findById(req.params.id)
 
     if (!polling) {
       res.status(404)
@@ -37,9 +37,9 @@ async function getPollingById (req, res) {
 }
 
 //Update polling station by Id
-async function updatePollingById (req, res) {
+exports.updatePollingById = async (req, res) => {
   try {
-    const updatedPolling = await PollingModel.findByIdAndUpdate(req.params.id, req.body, {
+    const updatedPolling = await Polling.findByIdAndUpdate(req.params.id, req.body, {
       new: true
     })
 
@@ -55,9 +55,9 @@ async function updatePollingById (req, res) {
 }
 
 // Delete Polling station
-async function deletePollingById (req, res) {
+exports.deletePollingById = async (req, res) => {
   try {
-    const deletedPolling = PollingModel.findByIdAndDelete(req.params.id)
+    const deletedPolling = Polling.findByIdAndDelete(req.params.id)
 
     if (!deletedPolling) {
       res.status(404)
@@ -69,12 +69,4 @@ async function deletePollingById (req, res) {
     console.error(error)
     res.status(500).json({error: 'Failed deleting Polling station'})
   }
-}
-
-export {
-  createPolling,
-  getAllPolling,
-  getPollingById,
-  updatePollingById,
-  deletePollingById
 }

@@ -1,11 +1,11 @@
-import mongoose from "mongoose";
-import * as dotenv from 'dotenv'
+const mongoose = require('mongoose');
+const dotenv = require('dotenv');
 
 dotenv.config()
 
 const connectionString = process.env.MONGODB_URL;
 
-export default async function dbConnect () {
+ const dbConnect = async () => {
     mongoose.connect(connectionString, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
@@ -17,3 +17,5 @@ export default async function dbConnect () {
         console.error("Error connecting to MongoDB:", err);
       });
   }
+
+  module.exports = dbConnect;
