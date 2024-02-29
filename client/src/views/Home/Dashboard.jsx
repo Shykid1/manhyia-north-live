@@ -1,44 +1,42 @@
-import SideBar from "../../components/Navbar/SideBar";
-import Searchbar from "../../components/Searchbar";
+import CustomDrawer from '../../components/Navbar/SideBar'; // Assuming CustomDrawer.js is in the same directory
+import Typography from '@mui/material/Typography';
 
 function Dashboard() {
-  return (
+  const mainContent = (
     <>
-      <div className="dashboard flex-container gap-5"></div>
-      <div className=" flex-container fixed top-0">
-        <SideBar />
-      </div>
-
-      <div className="mainbodycontent">
-        <div className="searchbar">
-            <Searchbar/>
-        </div>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro nobis
-          tempore tempora animi doloribus dolore quasi corrupti ad neque natus?
-          Obcaecati accusamus pariatur, inventore doloribus ex minima quo
-          deserunt hic aliquid, aperiam voluptate voluptatum nam nulla, amet
-          possimus vel ducimus perspiciatis sunt cum aliquam explicabo eligendi!
-          Aliquid quis quos provident alias quod illum saepe, harum omnis modi,
-          doloribus aut consequatur libero, laborum pariatur minima numquam.
-          Esse eum ducimus non voluptatibus ex officiis, odit vel numquam
-          repellendus neque fugiat magni accusamus? At dignissimos est neque
-          provident obcaecati reprehenderit praesentium voluptate fugiat
-          ducimus, eum pariatur culpa. Nesciunt voluptatem sint eos magnam velit
-          beatae vero cupiditate ut ratione facere culpa, aliquam amet voluptate
-          et doloremque aspernatur est obcaecati consequuntur quam accusantium
-          corrupti odit magni. Repellat omnis, nisi, harum commodi natus ipsum
-          culpa debitis nemo sint impedit iusto delectus labore. Vitae
-          reiciendis officiis sunt magni, exercitationem officia veniam modi
-          consequuntur temporibus commodi in quos laborum sit velit corporis
-          eius a porro ad maxime recusandae cupiditate omnis? At saepe aliquam
-          veniam laudantium velit, voluptas nostrum quod rem, corporis a
-          repellendus, amet rerum et praesentium est totam ut soluta
-          exercitationem quam veritatis illo tempore! Quia non, quasi hic
-          repudiandae porro ratione sequi soluta dolorum voluptate! Maxime.
-        </p>
-      </div>
+      {/* Your main content goes here */}
+      <Typography paragraph>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
+        enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
+        imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus.
+        Convallis convallis tellus id interdum velit laoreet id donec ultrices.
+        Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
+        adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra
+        nibh cras. Metus vulputate eu scelerisque felis imperdiet proin fermentum
+        leo. Mauris commodo quis imperdiet massa tincidunt. Cras tincidunt lobortis
+        feugiat vivamus at augue. At augue eget arcu dictum varius duis at
+        consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa
+        sapien faucibus et molestie ac.
+      </Typography>
+      <Typography paragraph>
+        Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper
+        eget nulla facilisi etiam dignissim diam. Pulvinar elementum integer enim
+        neque volutpat ac tincidunt. Ornare suspendisse sed nisi lacus sed viverra
+        tellus. Purus sit amet volutpat consequat mauris. Elementum eu facilisis
+        sed odio morbi. Euismod lacinia at quis risus sed vulputate odio. Morbi
+        tincidunt ornare massa eget egestas purus viverra accumsan in. In hendrerit
+        gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem
+        et tortor. Habitant morbi tristique senectus et. Adipiscing elit duis
+        tristique sollicitudin nibh sit. Ornare aenean euismod elementum nisi quis
+        eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
+        posuere sollicitudin aliquam ultrices sagittis orci a.
+      </Typography>
     </>
+  );
+
+  return (
+    <CustomDrawer mainContent={mainContent} />
   );
 }
 
