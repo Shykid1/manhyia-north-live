@@ -24,7 +24,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import SearchIcon from '@mui/icons-material/Search';
 import InputBase from '@mui/material/InputBase';
-import { styled } from '@mui/material/styles';
+import { styled, alpha } from '@mui/material/styles';
 
 const drawerWidth = 240;
 
@@ -48,9 +48,48 @@ function CustomDrawer(props) {
     }
   };
 
-  const SearchButton = styled(IconButton)(({ theme }) => ({
-    marginLeft: theme.spacing(1),
+  const Search = styled('div')(({ theme }) => ({
+    position: 'relative',
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: alpha(theme.palette.common.black, 0.15),
+    '&:hover': {
+      backgroundColor: alpha(theme.palette.common.black, 0.25),
+    },
+    marginLeft: 0,
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      marginLeft: theme.spacing(1),
+      width: 'auto',
+    },
+
   }));
+  
+  const SearchIconWrapper = styled('div')(({ theme }) => ({
+    padding: theme.spacing(0, 2),
+    height: '100%',
+    position: 'absolute',
+    pointerEvents: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  }));
+  const StyledInputBase = styled(InputBase)(({ theme }) => ({
+    color: 'inherit',
+    width: '100%',
+    '& .MuiInputBase-input': {
+      padding: theme.spacing(1, 1, 1, 0),
+      // vertical padding + font size from searchIcon
+      paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+      transition: theme.transitions.create('width'),
+      [theme.breakpoints.up('sm')]: {
+        width: '12ch',
+        '&:focus': {
+          width: '20ch',
+        },
+      },
+    },
+  }));
+
   const iconMap = {
     'Overview': <DashboardIcon />,
     'Poll enters': <BarChartIcon />,
@@ -62,15 +101,7 @@ function CustomDrawer(props) {
     'Agent info': <ContactSupportIcon />,
   };
   
-  // const UserProfile=(
-  //     <>
-  //       <div className="user-profile flex--container column gap-5 ">
-  //         <h1>hellop</h1>
-  //         <h1>hellop</h1>
-  //         <h1>hellop</h1>
-  //       </div>
-  //     </>
-  // );
+
 
   const drawer = (
       <div>
@@ -95,16 +126,20 @@ function CustomDrawer(props) {
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex', }}>
       <CssBaseline />
       <AppBar
         position="fixed"
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
+          backgroundColor: 'white',
+          color: 'black',
+         
         }}
       >
-        <Toolbar>
+        <Toolbar sx={{ display:'flex',
+          justifyContent: 'space-between',}}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -115,19 +150,18 @@ function CustomDrawer(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Your App Name
+          Manhyia North Live
           </Typography>
-          <SearchButton
-            color="inherit"
-            aria-label="search"
-            sx={{ ml: 'auto' }}
-          >
-            <SearchIcon />
-          </SearchButton>
-          <InputBase
-            placeholder="Search…"
-            inputProps={{ 'aria-label': 'search' }}
-          />
+
+          <Search>
+            <SearchIconWrapper>
+              <SearchIcon />
+            </SearchIconWrapper>
+            <StyledInputBase
+              placeholder="Search…"
+              inputProps={{ 'aria-label': 'search' }}
+            />
+          </Search>
         </Toolbar>
       </AppBar>
       <Box
@@ -146,7 +180,7 @@ function CustomDrawer(props) {
           }}
           sx={{
             display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth , },
           }}
         >
           {drawer}
@@ -155,7 +189,7 @@ function CustomDrawer(props) {
           variant="permanent"
           sx={{
             display: { xs: 'none', sm: 'block' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, background:'#4b91ecb4' },
           }}
           open
         >
@@ -164,8 +198,9 @@ function CustomDrawer(props) {
       </Box>
       <Box
         component="main"
-        sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
+        sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` }, backgroundColor:'#E8EAEC'}}
       >
+          <Toolbar />
         {mainContent}
       </Box>
     </Box>

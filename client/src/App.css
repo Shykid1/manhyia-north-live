@@ -35,6 +35,9 @@ P{
   .flex-container {
     display: flex;
   }
+  .flex-wrap{
+    flex-wrap: wrap
+  }
   .top-0{
     top: 0;
   }
@@ -58,8 +61,18 @@ P{
     justify-content: center;
     align-items: center;
   }
+  .txtcoloryellow{
+    color: var(--secondary-color);
+    padding: 7px;
+  }
   .gap-10{
     gap: 10px;
+  }
+  .gap-20{
+    gap: 20px;
+  }
+  .gap-15{
+    gap: 15px;
   }
   .gap-5{
     gap: 5px;
@@ -139,6 +152,11 @@ P{
   .submitbt{
     width: 100%;
   }
+  .cumulativechart{
+    width: 100%;
+    overflow: scroll;
+    /* padding-inline: 20px; */
+  }
 
   ::-webkit-scrollbar {
     width: 7px;
@@ -150,6 +168,7 @@ P{
     background-color: var(--primary-color);
     border-radius: 10px;
   }
+
   
   @media (max-width: 768px) {
     .mainbody{
@@ -168,5 +187,17 @@ P{
     .knowthem{
         flex-wrap: wrap;
         gap: 10px;
+    }
+    .maincontentbody{
+      flex-wrap: wrap;
+    }
+    .mapcards{
+      width: 100%;
+    }
+    .kumasimapimg{
+      height: 250px;
+    }
+    .mapsdisplay{
+      flex-wrap: wrap;
     }
   }
