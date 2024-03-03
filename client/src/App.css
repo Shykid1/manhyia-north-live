@@ -157,6 +157,9 @@ P{
     overflow: scroll;
     /* padding-inline: 20px; */
   }
+  .cumulativechart::-webkit-scrollbar{
+    height: 5px !important;
+  }
 
   ::-webkit-scrollbar {
     width: 7px;

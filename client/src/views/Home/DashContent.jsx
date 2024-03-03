@@ -12,7 +12,6 @@ import { styled } from "@mui/material/styles";
 // import DoughnutChart from "../../components/charts/DoughnutChart";
 import CumulativeChart from "../../components/charts/CumulativeChart";
 import AvatarList from "../../components/Avatar/AvatarList";
-import Footer from "../../components/Footer/Footer";
 import { Link } from "react-router-dom";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -193,10 +192,10 @@ function DashboardContent() {
           </CardContent>
         </Card>
       </div>
+      {/* <br />
       <br />
       <br />
-      <br />
-        <Footer/>
+        <Footer/> */}
     </>
   );
 }
