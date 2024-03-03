@@ -1,7 +1,11 @@
 import { IoLogoFacebook, IoLogoTwitter, IoLogoInstagram } from "react-icons/io5";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function Footer() {
+     const location = useLocation();
+     if (location.pathname === '/dashboard') {
+       return null;
+     }
     return ( 
         <>
         <div className="footer center flex-container gap-10 column">
