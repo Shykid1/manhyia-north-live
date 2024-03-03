@@ -1,6 +1,6 @@
 import Searchbar from '../Searchbar' 
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink, useLocation} from 'react-router-dom'
 import { IoMenu } from "react-icons/io5";
 import './Navbar.css'
 
@@ -11,6 +11,12 @@ const Navbar = () => {
   const handleToggleNavbar = () => {
     setShowNavbar(!showNavbar);
   };
+
+  const location = useLocation();
+
+  if (location.pathname === '/dashboard') {
+    return null;
+  }
 
   return (
     <>
@@ -24,12 +30,10 @@ const Navbar = () => {
         <IoMenu />
       </div>
       <div className={`nav-elements ${showNavbar ? 'active' : ''}`}>
-        <Link className='elements' to="/" onClick={handleToggleNavbar}>Home</Link>
-        <Link className='elements' to="/login" onClick={handleToggleNavbar}>Login</Link>
-        <Link className='elements' to="/presidential" onClick={handleToggleNavbar}>Presidential</Link>
-        <Link className='elements' to="/paliamentary" onClick={handleToggleNavbar}>Paliamentary</Link>
-        <Link className='elements' to="/mission" onClick={handleToggleNavbar}>Mission</Link>
-        <Link className='elements' to="/contact" onClick={handleToggleNavbar}>Contact</Link>
+        <NavLink className='elements' to="/" onClick={handleToggleNavbar}>Home</NavLink>
+        <NavLink className='elements' to="/login" onClick={handleToggleNavbar}>Login</NavLink>
+        <NavLink className='elements' to="/presidential" onClick={handleToggleNavbar}>Presidential</NavLink>
+        <NavLink className='elements' to="/paliamentary" onClick={handleToggleNavbar}>Paliamentary</NavLink>
       </div>
     </nav>
     </>
