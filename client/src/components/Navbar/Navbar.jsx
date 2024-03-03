@@ -31,6 +31,7 @@ const Navbar = () => {
       </div>
       <div className={`nav-elements ${showNavbar ? 'active' : ''}`}>
         <NavLink className='elements' to="/" onClick={handleToggleNavbar}>Home</NavLink>
+        <NavLink className='elements' to="/dashboard" onClick={handleToggleNavbar}>Dashboard</NavLink>
         <NavLink className='elements' to="/login" onClick={handleToggleNavbar}>Login</NavLink>
         <NavLink className='elements' to="/presidential" onClick={handleToggleNavbar}>Presidential</NavLink>
         <NavLink className='elements' to="/paliamentary" onClick={handleToggleNavbar}>Paliamentary</NavLink>
