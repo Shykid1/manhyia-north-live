@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/"
+    },
+    {
+      "src": "/login",
+      "dest": "/"
+    },
+    {
+      "src": "/dashboard",
+      "dest": "/"
+    },
+    {
+      "src": "/presidential",
+      "dest": "/"
+    },
+    {
+      "src": "/paliamentary",
+      "dest": "/"
+    },
+    {
+      "src": "/dashboard/results",
+      "dest": "/"
+    }
+  ]
+}
