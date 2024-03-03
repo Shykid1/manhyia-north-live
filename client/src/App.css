@@ -61,9 +61,16 @@ P{
     justify-content: center;
     align-items: center;
   }
+  .align-center{
+    align-items: center;
+  }
   .txtcoloryellow{
     color: var(--secondary-color);
     padding: 7px;
+  }
+  .btnelements{
+    padding: 10px;
+    border: 1px solid palevioletred;
   }
   .gap-10{
     gap: 10px;
@@ -172,7 +179,13 @@ P{
     border-radius: 10px;
   }
 
-  
+  .indicator{
+    height: 10px;
+    aspect-ratio: 1;
+    background: rgba(255, 0, 0, 0.863);
+    border-radius: 50px;
+    
+  }
   @media (max-width: 768px) {
     .mainbody{
     padding: 20px 10px;
@@ -202,6 +215,9 @@ P{
       width: 100%;
     }
     .mapsdisplay{
+      flex-wrap: wrap;
+    }
+    .resultsCard{
       flex-wrap: wrap;
     }
   }
