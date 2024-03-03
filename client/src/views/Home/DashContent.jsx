@@ -52,7 +52,7 @@ function DashboardContent() {
     <>
       <div className="flex-container gap-20 maincontentbody">
         <div className="flex-container column gap-15 center">
-          <Card sx={{ width: { xs: 450, sm: 400 } }}>
+          <Card sx={{ width: { xs: "100%", sm: 400 } }}>
             <CardContent sx={{ padding: 0 }}>
               <center>
                 <p className="txtcoloryellow">PRESIDENTIAL VOTES</p>
@@ -88,7 +88,7 @@ function DashboardContent() {
               </TableContainer>
             </CardContent>
           </Card>
-          <Card sx={{ width: { xs: 450, sm: 400 } }}>
+          <Card sx={{ width: { xs:"100%", sm: 400 } }}>
             <CardContent sx={{ padding: 0 }}>
               <center>
                 <p className="txtcoloryellow">PARLIAMENTARY VOTES</p>
@@ -129,7 +129,7 @@ function DashboardContent() {
           </Card>
         </div>
 
-        <Card sx={{ width: { xs: 450, sm: `70%` } }}>
+        <Card sx={{ width: { xs: "100%", sm: `70%` } }}>
           <CardContent>
             <div className="flex-container column gap-10">
               <div className="flex-container gap-10 mapsdisplay">
