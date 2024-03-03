@@ -129,7 +129,7 @@ function DashboardContent() {
           </Card>
         </div>
 
-        <Card sx={{ width: { xs: "100%", sm: `70%` } }}>
+        <Card sx={{ width: { xs: '80%', sm: `70%` } }}>
           <CardContent>
             <div className="flex-container column gap-10">
               <div className="flex-container gap-10 mapsdisplay">
