@@ -6,7 +6,8 @@ import Paliamentary from './views/Paliamentary'
 import Presidential from './views/Presidential'
 import Login from './views/Auth/Login'
 import './App.css'
-import Dashboard from './views/Home/Dashboard'
+import Dashboard from './views/Dashboard/Dashboard'
+import VoteResults from './views/Dashboard/Results/Results'
 
 const App = () => {
   return (
@@ -16,11 +17,16 @@ const App = () => {
       <Navbar />
 
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/presidential" element={<Presidential />} />
-          <Route path="/paliamentary" element={<Paliamentary />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/" >
+            <Route index element={<Home />} />
+            <Route path="dashboard" >
+              <Route index element={<Dashboard />} />
+              <Route path="results" element={<VoteResults />} />
+            </Route>
+            <Route path="presidential" element={<Presidential />} />
+            <Route path="paliamentary" element={<Paliamentary />} />
+            <Route path="login" element={<Login />} />
+          </Route>
         </Routes>
       <Footer/>
     </BrowserRouter>

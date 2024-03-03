@@ -14,7 +14,7 @@ const Navbar = () => {
 
   const location = useLocation();
 
-  if (location.pathname === '/dashboard') {
+  if (location.pathname === '/dashboard' || location.pathname === '/dashboard/results') {
     return null;
   }
 

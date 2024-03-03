@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 
 function Footer() {
      const location = useLocation();
-     if (location.pathname === '/dashboard') {
+     if (location.pathname === '/dashboard' || location.pathname === '/dashboard/results') {
        return null;
      }
     return ( 
