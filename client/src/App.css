@@ -194,8 +194,9 @@ P{
     .mapcards{
       width: 100%;
     }
-    .kumasimapimg{
+    .mapimage{
       height: 250px;
+      width: 100%;
     }
     .mapsdisplay{
       flex-wrap: wrap;

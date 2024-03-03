@@ -12,6 +12,7 @@ import { styled } from "@mui/material/styles";
 // import DoughnutChart from "../../components/charts/DoughnutChart";
 import CumulativeChart from "../../components/charts/CumulativeChart";
 import AvatarList from "../../components/Avatar/AvatarList";
+import Footer from "../../components/Footer/Footer";
 import { Link } from "react-router-dom";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -129,7 +130,7 @@ function DashboardContent() {
           </Card>
         </div>
 
-        <Card sx={{ width: { xs: `100%`, sm: `70%` } }}>
+        <Card sx={{ width: { xs: 450, sm: `70%` } }}>
           <CardContent>
             <div className="flex-container column gap-10">
               <div className="flex-container gap-10 mapsdisplay">
@@ -138,13 +139,17 @@ function DashboardContent() {
                   style={{ minWidth: 250 }}
                 >
                   <Card>
-                    <CardMedia sx={{ height: 120 ,objectFit:'cover' }} image="kumasimetro.png"   />
+                    <CardMedia>
+                      <img src="kumasimetro.png" style={{height: 120, minWidth: 250 ,objectFit:'contain' }} className="mapimage" />
+                    </CardMedia>
                     <CardContent>
-                      <p style={{fontSize: 12}}>A map showing  submitted votes in various polling stations</p>
+                      <p style={{fontSize: 12, textAlign: 'center'}}>A map showing  submitted votes in various polling stations</p>
                     </CardContent>
                   </Card>
                   <Card>
-                    <CardMedia sx={{ height: 120 }} image="kumasimap.png"   />
+                  <CardMedia>
+                      <img src="kumasimap.png" style={{height: 120, minWidth: 250 ,objectFit:'contain' }} className="mapimage" />
+                    </CardMedia>
                     <CardContent>
                       <center>
                       <p>KUMASI DEMOGRAPGY</p>
@@ -161,7 +166,7 @@ function DashboardContent() {
                   </Card>
                   
                 </div>
-                <Card>
+                <Card sx={{ width: { xs: `100%`, sm: `70%` } }}>
                   <CardContent className="flex-container column gap-10">
                     <div className="headlines space-between flex-container">
                       <p style={{fontSize:12}}>Report from polling station</p>
@@ -170,7 +175,7 @@ function DashboardContent() {
                       </Link>
                     </div>
                     <br />
-                    <div>
+                    <div >
                     <AvatarList avatarimage={'Bawumia.jpeg'} avatarname={'Bawimia'} avatarmessage={'Reporting live from Manhyia south polling station....'}/>
                   <AvatarList avatarimage={'Bawumia.jpeg'} avatarname={'Bawimia'} avatarmessage={'Reporting live from Manhyia south polling station....'}/>
                   <AvatarList avatarimage={'Bawumia.jpeg'} avatarname={'Bawimia'} avatarmessage={'Reporting live from Manhyia south polling station....'}/>
@@ -188,6 +193,10 @@ function DashboardContent() {
           </CardContent>
         </Card>
       </div>
+      <br />
+      <br />
+      <br />
+        <Footer/>
     </>
   );
 }
