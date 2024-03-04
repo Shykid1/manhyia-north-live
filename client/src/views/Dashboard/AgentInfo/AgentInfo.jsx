@@ -229,11 +229,11 @@ const AgentInfo = () => {
                 bgcolor: "#4B91EC",
                 color: "#ffff",
                 fontSize: 12,
-                padding: 4,
+                padding: 2,
               }}
               title="AGENT INFORMATION"
             />
-            <Typography variant="p" sx={{}}>
+            <Typography variant="p" sx={{ margin: 2 }}>
               Enter the follwing details to create an Agent
             </Typography>
             <Box
@@ -258,7 +258,12 @@ const AgentInfo = () => {
                 </Box>
               )}
               <label htmlFor="select-image">
-                <Button variant="contained" color="primary" component="span">
+                <Button
+                  variant="contained"
+                  color="primary"
+                  component="span"
+                  sx={{ margin: 2 }}
+                >
                   Upload Image
                 </Button>
               </label>
