@@ -23,6 +23,10 @@
     {
       "src": "/dashboard/results",
       "dest": "/"
+    },
+    {
+      "src": "/dashboard/agent-info",
+      "dest": "/"
     }
   ]
 }
