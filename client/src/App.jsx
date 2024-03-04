@@ -8,6 +8,7 @@ import Login from './views/Auth/Login'
 import './App.css'
 import Dashboard from './views/Dashboard/Dashboard'
 import VoteResults from './views/Dashboard/Results/Results'
+import AgentInfo from './views/Dashboard/AgentInfo/AgentInfo'
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
             <Route path="dashboard" >
               <Route index element={<Dashboard />} />
               <Route path="results" element={<VoteResults />} />
+              <Route path="agent-info" element={<AgentInfo />} />
             </Route>
             <Route path="presidential" element={<Presidential />} />
             <Route path="paliamentary" element={<Paliamentary />} />

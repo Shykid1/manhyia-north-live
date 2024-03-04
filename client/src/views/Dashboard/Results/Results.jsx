@@ -38,11 +38,10 @@ function createData(Candidates, votes, shared) {
 }
 
 const rows = [
-  createData("Frozen yoghurt", 159, 6.0, 24),
-  createData("Ice cream sandwich", 237, 9.0, 37),
-  createData("Ice cream sandwich", 237, 9.0, 37),
-  createData("Abdul Hafis Mohammed", 262, 16.0, 24),
-  createData("Eclair", 262, 16.0, 24),
+  createData("John D. Mahama", 300, 45, 45),
+  createData("Mahamudu Bawumia", 120, 27, 27),
+  createData("Alan Chremantin", 100, 20, 20),
+  createData("Abdul Hafis Mohammed", 25, 8, 8),
 ];
 
 function VoteResults() {

@@ -14,7 +14,7 @@ const Navbar = () => {
 
   const location = useLocation();
 
-  if (location.pathname === '/dashboard' || location.pathname === '/dashboard/results') {
+  if (location.pathname === '/dashboard' || location.pathname === '/dashboard/results' || location.pathname === '/dashboard/agent-info') {
     return null;
   }
 
