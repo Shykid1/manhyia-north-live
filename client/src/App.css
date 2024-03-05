@@ -167,6 +167,12 @@ P{
   .cumulativechart::-webkit-scrollbar{
     height: 5px !important;
   }
+  .Tablefooter{
+    width: 100%;
+  }
+  .Tablefooter::-webkit-scrollbar{
+    height: 5px !important;
+  }
 
   ::-webkit-scrollbar {
     width: 7px;
@@ -185,6 +191,10 @@ P{
     background: rgba(255, 0, 0, 0.863);
     border-radius: 50px;
     
+  }
+  .lineChart{
+    width: 100%;
+    height: max-content;
   }
   @media (max-width: 768px) {
     .mainbody{
@@ -218,6 +228,9 @@ P{
       flex-wrap: wrap;
     }
     .resultsCard{
+      flex-wrap: wrap;
+    }
+    .agentInfo{
       flex-wrap: wrap;
     }
   }

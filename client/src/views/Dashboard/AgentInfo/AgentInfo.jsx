@@ -3,7 +3,6 @@ import {
   Box,
   Button,
   Card,
-  CardContent,
   CardHeader,
   IconButton,
   InputBase,
@@ -25,6 +24,7 @@ import LastPageIcon from "@mui/icons-material/LastPage";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import PropTypes from "prop-types";
+import CumulativeChart from "../../../components/charts/CumulativeChart";
 import CustomDrawer from "../../../components/Navbar/SideBar";
 import "./AgentInfo.css";
 
@@ -200,227 +200,351 @@ const AgentInfo = () => {
   };
 
   const mainContent = (
-    <div className="flex-container gap-20 agentInfo">
-      <Card sx={{ width: "100%" }}>
-        <CardContent
+    <div className="flex-container column gap-20 agentInfo">
+      <div className="flex-container space-between agentInfo gap-20">
+        <Card
           sx={{
+            textAlign: "center",
+            alignContent: "center",
+            width: { xs: 450, sm: 400 },
             display: "flex",
-            flexDirection: "row",
-            flexWrap: "wrap",
-            width: "100%",
-            paddingLeft: 3,
-            paddingRight: 3,
-            gap: 3,
+            flexDirection: "column",
+            justifyContent: "center",
           }}
-          className="flex-container"
         >
-          <Card
+          <CardHeader
             sx={{
-              textAlign: "center",
-              alignContent: "center",
-              width: { xs: 400, sm: 400 },
+              bgcolor: "#4B91EC",
+              color: "#ffff",
+              fontSize: 12,
+              padding: 2,
+            }}
+            title="AGENT INFORMATION"
+          />
+          <Typography variant="p" sx={{ margin: 2 }}>
+            Enter the follwing details to create an Agent
+          </Typography>
+          <Box
+            component={"form"}
+            sx={{
+              "& .MuiTextField-root": {
+                m: 1,
+                width: { xs: "40ch", sm: "35ch" },
+              },
               display: "flex",
               flexDirection: "column",
-              justifyContent: "center",
+              alignItems: "center",
             }}
           >
-            <CardHeader
-              sx={{
-                bgcolor: "#4B91EC",
-                color: "#ffff",
-                fontSize: 12,
-                padding: 2,
-              }}
-              title="AGENT INFORMATION"
+            <input
+              accept="image/*"
+              type="file"
+              id="select-image"
+              style={{ display: "none" }}
+              onChange={(e) => setSelectedImage(e.target.files[0])}
             />
-            <Typography variant="p" sx={{ margin: 2 }}>
-              Enter the follwing details to create an Agent
-            </Typography>
-            <Box
-              component={"form"}
-              sx={{
-                "& .MuiTextField-root": { m: 1, width: "25ch" },
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-              }}
-            >
-              <input
-                accept="image/*"
-                type="file"
-                id="select-image"
-                style={{ display: "none" }}
-                onChange={(e) => setSelectedImage(e.target.files[0])}
-              />
-              {imageUrl && selectedImage && (
-                <Box mt={2} textAlign="center" sx={{ padding: 2 }}>
-                  <img src={imageUrl} alt={selectedImage.name} height="100px" />
-                </Box>
-              )}
-              <label htmlFor="select-image">
-                <Button
-                  variant="contained"
-                  color="primary"
-                  component="span"
-                  sx={{ margin: 2 }}
-                >
-                  Upload Image
-                </Button>
-              </label>
-              <TextField
-                id="outlined-firstname-input"
-                label="Firstname"
-                type="text"
-                placeholder="Enter Firstname"
-                multiline
-                required
-              />
-              <TextField
-                id="outlined-lastname-input"
-                label="Lastname"
-                type="text"
-                placeholder="Enter Lastname"
-                multiline
-                required
-              />
-              <TextField
-                id="outlined-email-input"
-                label="Email"
-                type="email"
-                placeholder="Enter Email"
-                multiline
-                required
-              />
-              <TextField
-                id="outlined-number-input"
-                label="Phone-Number"
-                type="text"
-                placeholder="Enter Phone-Number"
-                multiline
-                required
-              />
-              <TextField
-                id="outlined-polling-input"
-                label="Polling-Station Code"
-                type="text"
-                placeholder="Enter Polling-Station Code"
-                multiline
-                required
-              />
-
-              <Button variant="contained" sx={{ margin: 2 }}>
-                Generate Password
+            {imageUrl && selectedImage && (
+              <Box mt={2} textAlign="center" sx={{ padding: 2 }}>
+                <img src={imageUrl} alt={selectedImage.name} height="100px" />
+              </Box>
+            )}
+            <label htmlFor="select-image">
+              <Button
+                variant="contained"
+                color="primary"
+                component="span"
+                sx={{ margin: 2 }}
+              >
+                Upload Image
               </Button>
+            </label>
+            <TextField
+              id="outlined-firstname-input"
+              label="Firstname"
+              type="text"
+              placeholder="Enter Firstname"
+              multiline
+              required
+            />
+            <TextField
+              id="outlined-lastname-input"
+              label="Lastname"
+              type="text"
+              placeholder="Enter Lastname"
+              multiline
+              required
+            />
+            <TextField
+              id="outlined-email-input"
+              label="Email"
+              type="email"
+              placeholder="Enter Email"
+              multiline
+              required
+            />
+            <TextField
+              id="outlined-number-input"
+              label="Phone-Number"
+              type="text"
+              placeholder="Enter Phone-Number"
+              multiline
+              required
+            />
+            <TextField
+              id="outlined-polling-input"
+              label="Polling-Station Code"
+              type="text"
+              placeholder="Enter Polling-Station Code"
+              multiline
+              required
+            />
 
-              <TextField
-                id="outlined-password-input"
-                label="Password"
-                type="password"
-                placeholder="Enter Password"
-                multiline
-                required
-              />
-              <Button variant="contained" sx={{ margin: 2 }}>
-                Create and Send to Agent
-              </Button>
-            </Box>
-          </Card>
+            <Button variant="contained" sx={{ margin: 2 }}>
+              Generate Password
+            </Button>
 
-          <Card
+            <TextField
+              id="outlined-password-input"
+              label="Password"
+              type="password"
+              placeholder="Enter Password"
+              multiline
+              required
+            />
+            <Button variant="contained" sx={{ margin: 2 }}>
+              Create and Send to Agent
+            </Button>
+          </Box>
+        </Card>
+
+        <Card
+          sx={{
+            textAlign: "center",
+            alignContent: "center",
+            width: { xs: 450, sm: 680 },
+            overflow: "scroll",
+            padding: 3,
+          }}
+          className="Tablefooter"
+        >
+          <Paper
+            component="form"
             sx={{
-              textAlign: "center",
-              alignContent: "center",
-              width: { xs: 400, sm: 550 },
+              p: "2px 4px",
+              display: "flex",
+              alignItems: "center",
+              backgroundColor: "#efefef",
+              width: "100%",
             }}
           >
-            <Paper
-              component="form"
+            <InputBase
               sx={{
-                p: "2px 4px",
-                display: "flex",
-                alignItems: "center",
+                ml: 1,
+                flex: 1,
+                backgroundColor: "#efefef",
+                padding: "7px",
+                borderRadius: "5px",
               }}
+              placeholder="Search"
+              inputProps={{ "aria-label": "search" }}
+            />
+            <IconButton
+              type="button"
+              sx={{ p: "10px", boxShadow: "none" }}
+              aria-label="search"
             >
-              <InputBase
-                sx={{ ml: 1, flex: 1 }}
-                placeholder="Search"
-                inputProps={{ "aria-label": "search" }}
-              />
-              <IconButton type="button" sx={{ p: "10px" }} aria-label="search">
-                <SearchIcon />
-              </IconButton>
-            </Paper>
+              <SearchIcon />
+            </IconButton>
+          </Paper>
 
-            <Table
-              sx={{
-                width: { xs: 380, sm: 550 },
-                height: 493.63,
-              }}
-              stickyHeader
-              aria-label="custom pagination table"
-            >
-              <TableHead sx={{ backgroundColor: "#F7B329" }}>
-                <TableRow>
-                  <TableCell>Name</TableCell>
-                  <TableCell>Email</TableCell>
-                  <TableCell>Phone Number</TableCell>
-                  <TableCell>Polling Staion</TableCell>
-                  <TableCell>Polling Code</TableCell>
+          <Table
+            sx={{
+              width: "100%",
+              height: 493.63,
+            }}
+            stickyHeader
+            aria-label="custom pagination table"
+          >
+            <TableHead sx={{ backgroundColor: "#F7B329" }}>
+              <TableRow>
+                <TableCell>Name</TableCell>
+                <TableCell>Email</TableCell>
+                <TableCell>Phone Number</TableCell>
+                <TableCell>Polling Staion</TableCell>
+                <TableCell>Polling Code</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {(rowsPerPage > 0
+                ? rows.slice(
+                    page * rowsPerPage,
+                    page * rowsPerPage + rowsPerPage
+                  )
+                : rows
+              ).map((row, index) => (
+                <TableRow key={index}>
+                  <TableCell>{row.name}</TableCell>
+                  <TableCell>{row.email}</TableCell>
+                  <TableCell>{row.phone}</TableCell>
+                  <TableCell>{row.pollingStation}</TableCell>
+                  <TableCell>{row.pollingCode}</TableCell>
                 </TableRow>
-              </TableHead>
-              <TableBody>
-                {(rowsPerPage > 0
-                  ? rows.slice(
-                      page * rowsPerPage,
-                      page * rowsPerPage + rowsPerPage
-                    )
-                  : rows
-                ).map((row, index) => (
-                  <TableRow key={index}>
-                    <TableCell>{row.name}</TableCell>
-                    <TableCell>{row.email}</TableCell>
-                    <TableCell>{row.phone}</TableCell>
-                    <TableCell>{row.pollingStation}</TableCell>
-                    <TableCell>{row.pollingCode}</TableCell>
-                  </TableRow>
-                ))}
-                {emptyRows > 0 && (
-                  <TableRow style={{ height: 53 * emptyRows }}>
-                    <TableCell colSpan={6} />
-                  </TableRow>
-                )}
-              </TableBody>
-              <TableFooter sx={{ width: "100%" }}>
-                <TableRow sx={{ width: "100%" }}>
-                  <TablePagination
-                    rowsPerPageOptions={[
-                      7,
-                      10,
-                      25,
-                      { label: "All", value: -1 },
-                    ]}
-                    colSpan={4}
-                    count={rows.length}
-                    rowsPerPage={rowsPerPage}
-                    page={page}
-                    slotProps={{
-                      select: {
-                        inputProps: {
-                          "aria-label": "rows per page",
-                        },
-                        native: true,
+              ))}
+              {emptyRows > 0 && (
+                <TableRow style={{ height: 53 * emptyRows }}>
+                  <TableCell colSpan={6} />
+                </TableRow>
+              )}
+            </TableBody>
+            <TableFooter className="Tablefooter">
+              <TableRow className="Tablefooter">
+                <TablePagination
+                  className="Tablefooter"
+                  rowsPerPageOptions={[7, 10, 25, { label: "All", value: -1 }]}
+                  colSpan={4}
+                  count={rows.length}
+                  rowsPerPage={rowsPerPage}
+                  page={page}
+                  slotProps={{
+                    select: {
+                      inputProps: {
+                        "aria-label": "rows per page",
                       },
-                    }}
-                    onPageChange={handleChangePage}
-                    onRowsPerPageChange={handleChangeRowsPerPage}
-                    ActionsComponent={TablePaginationActions}
-                  />
+                      native: true,
+                    },
+                  }}
+                  onPageChange={handleChangePage}
+                  onRowsPerPageChange={handleChangeRowsPerPage}
+                  ActionsComponent={TablePaginationActions}
+                />
+              </TableRow>
+            </TableFooter>
+          </Table>
+        </Card>
+      </div>
+      <div className="flex-container space-between agentInfo gap-20">
+        <Card
+          sx={{
+            textAlign: "center",
+            alignContent: "center",
+            width: { xs: 450, sm: 500 },
+            overflowX: "scroll",
+          }}
+          className="Tablefooter"
+        >
+          <CardHeader
+            sx={{
+              bgcolor: "#4B91EC",
+              color: "#ffff",
+              fontSize: 12,
+              width: "100%",
+              // padding: 2,
+            }}
+            title="Uploaded Results from Agent"
+          />
+          <Table
+            sx={{
+              width: "100%",
+              height: 493.63,
+            }}
+            stickyHeader
+            aria-label="custom pagination table"
+          >
+            <TableHead sx={{ backgroundColor: "#F7B329" }}>
+              <TableRow>
+                <TableCell>Name</TableCell>
+                <TableCell>Email</TableCell>
+                <TableCell>Phone Number</TableCell>
+                <TableCell>Polling Staion</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {(rowsPerPage > 0
+                ? rows.slice(
+                    page * rowsPerPage,
+                    page * rowsPerPage + rowsPerPage
+                  )
+                : rows
+              ).map((row, index) => (
+                <TableRow key={index}>
+                  <TableCell>{row.name}</TableCell>
+                  <TableCell>{row.email}</TableCell>
+                  <TableCell>{row.phone}</TableCell>
+                  <TableCell>{row.pollingStation}</TableCell>
                 </TableRow>
-              </TableFooter>
-            </Table>
-          </Card>
-        </CardContent>
-      </Card>
+              ))}
+              {emptyRows > 0 && (
+                <TableRow style={{ height: 53 * emptyRows }}>
+                  <TableCell colSpan={6} />
+                </TableRow>
+              )}
+            </TableBody>
+            <TableFooter className="Tablefooter">
+              <TableRow className="Tablefooter">
+                <TablePagination
+                  className="Tablefooter"
+                  rowsPerPageOptions={[7, 10, 25, { label: "All", value: -1 }]}
+                  colSpan={4}
+                  count={rows.length}
+                  rowsPerPage={rowsPerPage}
+                  page={page}
+                  slotProps={{
+                    select: {
+                      inputProps: {
+                        "aria-label": "rows per page",
+                      },
+                      native: true,
+                    },
+                  }}
+                  onPageChange={handleChangePage}
+                  onRowsPerPageChange={handleChangeRowsPerPage}
+                  ActionsComponent={TablePaginationActions}
+                />
+              </TableRow>
+            </TableFooter>
+          </Table>
+        </Card>
+
+        <Card
+          sx={{
+            textAlign: "center",
+            alignContent: "center",
+            width: { xs: 450, sm: 570 },
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+            paddingBottom: 5
+          }}
+          
+        >
+          <CardHeader
+            sx={{
+              bgcolor: "#4B91EC",
+              color: "#ffff",
+              fontSize: 12,
+              width: "100%",
+              // padding: 2,
+            }}
+            title="Votes Acceleration Graph"
+          />
+          <Box
+            component={"form"}
+            sx={{
+              "& .MuiTextField-root": {
+                m: 1,
+                width: { xs: "40ch", sm: "35ch" },
+              },
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <div className="cumulativechart">
+              <CumulativeChart  />
+            </div>
+          </Box>
+        </Card>
+      </div>
     </div>
   );
   return <CustomDrawer mainContent={mainContent} />;

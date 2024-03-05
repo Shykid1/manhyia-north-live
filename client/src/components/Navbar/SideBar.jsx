@@ -14,6 +14,8 @@ import GroupIcon from "@mui/icons-material/Group";
 import AssessmentIcon from "@mui/icons-material/Assessment";
 import AnnouncementIcon from "@mui/icons-material/Announcement";
 import ContactSupportIcon from "@mui/icons-material/ContactSupport";
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -94,6 +96,7 @@ function CustomDrawer(props) {
     Overview: <DashboardIcon />,
     "Poll Centers": <BarChartIcon />,
     Votes: <HowToVoteIcon />,
+    Results: <TrendingUpIcon/>,
     Presidential: <PersonIcon />,
     Palimentary: <GroupIcon />,
     Analysis: <AssessmentIcon />,
@@ -105,6 +108,7 @@ function CustomDrawer(props) {
     Overview: "/dashboard",
     "Poll Centers": "/dashboard/poll-centers",
     Votes: "/dashboard/votes",
+    Results: "/dashboard/results",
     Presidential: "/dashboard/presidential",
     Palimentary: "/dashboard/palimentary",
     Analysis: "/dashboard/analysis",
@@ -121,6 +125,7 @@ function CustomDrawer(props) {
           "Overview",
           "Poll Centers",
           "Votes",
+          "Results",
           "Presidential",
           "Palimentary",
           "Analysis",

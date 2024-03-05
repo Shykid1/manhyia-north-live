@@ -24,8 +24,8 @@ const CumulativeChart = () => {
 
   return (
     <LineChart
-      width={800}
-      height={400}
+      width={600}
+      height={550}
       data={Object.keys(data).reduce((acc, key, ) => {
         data[key].forEach((value, i) => {
           if (!acc[i]) acc[i] = { name: `Vote ${i + 1}` };
