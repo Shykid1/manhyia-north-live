@@ -3,7 +3,7 @@ import { Card, CardContent, Table, TableCell, TableContainer, TableHead, TableRo
 const InfoCard = () => {
   return (
     <div>
-      <Card sx={{ maxWidth: 700, bgcolor: "#F9F0F0" }}>
+      <Card sx={{ width: {xs:320, sm:700}, bgcolor: "#F9F0F0" }}>
         <TableContainer>
           <Table sx={{bgcolor: '#022C06'}}>
             <TableHead sx={{bgcolor: '#022C06'}}>

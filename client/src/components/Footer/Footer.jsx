@@ -3,9 +3,17 @@ import { Link, useLocation } from "react-router-dom";
 
 function Footer() {
      const location = useLocation();
-     if (location.pathname === '/dashboard' || location.pathname === '/dashboard/results' || location.pathname === '/dashboard/agent-info') {
-       return null;
-     }
+     const excludedPaths = [
+          "/dashboard",
+          "/dashboard/results",
+          "/dashboard/agent-info",
+          "/dashboard/palimentary",
+        ];
+      
+        if (excludedPaths.includes(location.pathname)) {
+          return null;
+        }
+        
     return ( 
         <>
         <div className="footer center flex-container gap-10 column">
