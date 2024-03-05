@@ -26,7 +26,7 @@ const CountDown = () => {
     } else {
       // Render a countdown
       return (
-        <div>
+        <div style={{ color: '#ffff'}}>
           {renderTimeUnit(days, 'Days')}
           {renderTimeUnit(hours, 'Hours')}
           {renderTimeUnit(minutes, 'Minutes')}
