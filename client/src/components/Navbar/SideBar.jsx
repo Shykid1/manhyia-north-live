@@ -189,7 +189,7 @@ function CustomDrawer(props) {
           variant="permanent"
           sx={{
             display: { xs: 'none', sm: 'block' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, background:'#4b91ecb4' },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, background:'#73d353' },
           }}
           open
         >
