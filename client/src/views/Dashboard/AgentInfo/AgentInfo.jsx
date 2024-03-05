@@ -352,7 +352,11 @@ const AgentInfo = () => {
             </Paper>
 
             <Table
-              sx={{ width: { xs: `100%`, sm: "100%" }, height: 493.63 }}
+              sx={{
+                width: { xs: 380, sm: 550 },
+                height: 493.63,
+              }}
+              stickyHeader
               aria-label="custom pagination table"
             >
               <TableHead sx={{ backgroundColor: "#F7B329" }}>
