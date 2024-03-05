@@ -9,7 +9,8 @@ import "./App.css";
 import Dashboard from "./views/Dashboard/Dashboard";
 import VoteResults from "./views/Dashboard/Results/Results";
 import AgentInfo from "./views/Dashboard/AgentInfo/AgentInfo";
-import DashboardPaliamentary from "./views/Dashboard/palimentary/Palimentary";
+import DashPaliamentary from "./views/Dashboard/Paliamentary/DashPaliamentary";
+import DashPresidential from "./views/Dashboard/Presidential/DashPresidential";
 
 const App = () => {
   return (
@@ -23,7 +24,8 @@ const App = () => {
             <Route index element={<Dashboard />} />
             <Route path="results" element={<VoteResults />} />
             <Route path="agent-info" element={<AgentInfo />} />
-            <Route path="palimentary" element={<DashboardPaliamentary />} />
+            <Route path="paliamentary" element={<DashPaliamentary />} />
+            <Route path="presidential" element={<DashPresidential />} />
           </Route>
           <Route path="presidential" element={<Presidential />} />
           <Route path="paliamentary" element={<Paliamentary />} />

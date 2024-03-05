@@ -11,7 +11,8 @@ function Footer() {
     "/dashboard",
     "/dashboard/results",
     "/dashboard/agent-info",
-    "/dashboard/palimentary",
+    "/dashboard/paliamentary",
+    "/dashboard/presidential",
   ];
 
   if (excludedPaths.includes(location.pathname)) {
