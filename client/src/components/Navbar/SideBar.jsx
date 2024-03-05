@@ -1,30 +1,31 @@
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
-import Divider from '@mui/material/Divider';
-import Drawer from '@mui/material/Drawer';
-import IconButton from '@mui/material/IconButton';
-import DashboardIcon from '@mui/icons-material/Dashboard';
-import BarChartIcon from '@mui/icons-material/BarChart';
-import HowToVoteIcon from '@mui/icons-material/HowToVote';
-import PersonIcon from '@mui/icons-material/Person';
-import GroupIcon from '@mui/icons-material/Group';
-import AssessmentIcon from '@mui/icons-material/Assessment';
-import AnnouncementIcon from '@mui/icons-material/Announcement';
-import ContactSupportIcon from '@mui/icons-material/ContactSupport';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import MenuIcon from '@mui/icons-material/Menu';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import SearchIcon from '@mui/icons-material/Search';
-import InputBase from '@mui/material/InputBase';
-import { styled, alpha } from '@mui/material/styles';
+import * as React from "react";
+import PropTypes from "prop-types";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import CssBaseline from "@mui/material/CssBaseline";
+import Divider from "@mui/material/Divider";
+import Drawer from "@mui/material/Drawer";
+import IconButton from "@mui/material/IconButton";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import BarChartIcon from "@mui/icons-material/BarChart";
+import HowToVoteIcon from "@mui/icons-material/HowToVote";
+import PersonIcon from "@mui/icons-material/Person";
+import GroupIcon from "@mui/icons-material/Group";
+import AssessmentIcon from "@mui/icons-material/Assessment";
+import AnnouncementIcon from "@mui/icons-material/Announcement";
+import ContactSupportIcon from "@mui/icons-material/ContactSupport";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import MenuIcon from "@mui/icons-material/Menu";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import SearchIcon from "@mui/icons-material/Search";
+import InputBase from "@mui/material/InputBase";
+import { styled, alpha } from "@mui/material/styles";
+import { NavLink } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -48,109 +49,128 @@ function CustomDrawer(props) {
     }
   };
 
-  const Search = styled('div')(({ theme }) => ({
-    position: 'relative',
+  const Search = styled("div")(({ theme }) => ({
+    position: "relative",
     borderRadius: theme.shape.borderRadius,
     backgroundColor: alpha(theme.palette.common.black, 0.15),
-    '&:hover': {
+    "&:hover": {
       backgroundColor: alpha(theme.palette.common.black, 0.25),
     },
     marginLeft: 0,
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
+    width: "100%",
+    [theme.breakpoints.up("sm")]: {
       marginLeft: theme.spacing(1),
-      width: 'auto',
+      width: "auto",
     },
-
   }));
-  
-  const SearchIconWrapper = styled('div')(({ theme }) => ({
+
+  const SearchIconWrapper = styled("div")(({ theme }) => ({
     padding: theme.spacing(0, 2),
-    height: '100%',
-    position: 'absolute',
-    pointerEvents: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    height: "100%",
+    position: "absolute",
+    pointerEvents: "none",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   }));
   const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: 'inherit',
-    width: '100%',
-    '& .MuiInputBase-input': {
+    color: "inherit",
+    width: "100%",
+    "& .MuiInputBase-input": {
       padding: theme.spacing(1, 1, 1, 0),
       // vertical padding + font size from searchIcon
       paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-      transition: theme.transitions.create('width'),
-      [theme.breakpoints.up('sm')]: {
-        width: '12ch',
-        '&:focus': {
-          width: '20ch',
+      transition: theme.transitions.create("width"),
+      [theme.breakpoints.up("sm")]: {
+        width: "12ch",
+        "&:focus": {
+          width: "20ch",
         },
       },
     },
   }));
 
   const iconMap = {
-    'Overview': <DashboardIcon />,
-    'Poll enters': <BarChartIcon />,
-    'Votes': <HowToVoteIcon />,
-    'Presidential': <PersonIcon />,
-    'Palimentary': <GroupIcon />,
-    'Analysis': <AssessmentIcon />,
-    'News updates': <AnnouncementIcon />,
-    'Agent info': <ContactSupportIcon />,
+    Overview: <DashboardIcon />,
+    "Poll Centers": <BarChartIcon />,
+    Votes: <HowToVoteIcon />,
+    Presidential: <PersonIcon />,
+    Palimentary: <GroupIcon />,
+    Analysis: <AssessmentIcon />,
+    "News updates": <AnnouncementIcon />,
+    "Agent info": <ContactSupportIcon />,
   };
-  
 
+  const routeMap = {
+    Overview: "/dashboard",
+    "Poll Centers": "/dashboard/poll-centers",
+    Votes: "/dashboard/votes",
+    Presidential: "/dashboard/presidential",
+    Palimentary: "/dashboard/palimentary",
+    Analysis: "/dashboard/analysis",
+    "News updates": "/dashboard/news-updates",
+    "Agent info": "/dashboard/agent-info",
+  };
 
   const drawer = (
-      <div>
+    <div>
       <Toolbar />
       <Divider />
       <List>
-      {['Overview', 'Poll enters', 'Votes', 'Presidential', 'Palimentary', 'Analysis', 'News updates', 'Agent info'].map((text) => (
-        <ListItem key={text} disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              {iconMap[text]}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItemButton>
-        </ListItem>
-      ))}
-    </List>
-      
+        {[
+          "Overview",
+          "Poll Centers",
+          "Votes",
+          "Presidential",
+          "Palimentary",
+          "Analysis",
+          "News updates",
+          "Agent info",
+        ].map((text) => (
+          <NavLink
+            to={routeMap[text]}
+            style={{ textDecoration: "none", color: "black" }}
+            key={text}
+          >
+            <ListItem disablePadding>
+              <ListItemButton>
+                <ListItemIcon>{iconMap[text]}</ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItemButton>
+            </ListItem>
+          </NavLink>
+        ))}
+      </List>
     </div>
   );
 
-  const container = window !== undefined ? () => window().document.body : undefined;
+  const container =
+    window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: 'flex', }}>
+    <Box sx={{ display: "flex" }}>
       <CssBaseline />
       <AppBar
         position="fixed"
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
-          backgroundColor: 'white',
-          color: 'black',
-         
+          backgroundColor: "white",
+          color: "black",
         }}
       >
-        <Toolbar sx={{ display:'flex',
-          justifyContent: 'space-between',}}>
+        <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
+            sx={{ mr: 2, display: { sm: "none" } }}
           >
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-          Manhyia North Live
+            Manhyia North Live
           </Typography>
 
           <Search>
@@ -159,7 +179,7 @@ function CustomDrawer(props) {
             </SearchIconWrapper>
             <StyledInputBase
               placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
+              inputProps={{ "aria-label": "search" }}
             />
           </Search>
         </Toolbar>
@@ -179,8 +199,11 @@ function CustomDrawer(props) {
             keepMounted: true, // Better open performance on mobile.
           }}
           sx={{
-            display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth , },
+            display: { xs: "block", sm: "none" },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: drawerWidth,
+            },
           }}
         >
           {drawer}
@@ -198,9 +221,14 @@ function CustomDrawer(props) {
       </Box>
       <Box
         component="main"
-        sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` }, backgroundColor:'#E8EAEC'}}
+        sx={{
+          flexGrow: 1,
+          p: 3,
+          width: { sm: `calc(100% - ${drawerWidth}px)` },
+          backgroundColor: "#E8EAEC",
+        }}
       >
-          <Toolbar />
+        <Toolbar />
         {mainContent}
       </Box>
     </Box>
