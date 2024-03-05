@@ -46,11 +46,10 @@ const rows = [
   createData("Eclair", 262, 16.0, 24),
 ];
 
-
 function DashboardContent() {
   return (
     <>
-      <div className="flex-container gap-20 maincontentbody">
+      <div className="flex-container gap-20 maincontentbody topalign">
         <div className="flex-container column gap-15 center">
           <Card sx={{ width: { xs: "100%", sm: 400 } }}>
             <CardContent sx={{ padding: 0 }}>
@@ -88,7 +87,7 @@ function DashboardContent() {
               </TableContainer>
             </CardContent>
           </Card>
-          <Card sx={{ width: { xs:"100%", sm: 400 } }}>
+          <Card sx={{ width: { xs: "100%", sm: 400 } }}>
             <CardContent sx={{ padding: 0 }}>
               <center>
                 <p className="txtcoloryellow">PARLIAMENTARY VOTES</p>
@@ -139,55 +138,104 @@ function DashboardContent() {
                 >
                   <Card>
                     <CardMedia>
-                      <img src="kumasimetro.png" style={{height: 120, minWidth: 250 ,objectFit:'contain' }} className="mapimage" />
+                      <img
+                        src="kumasimetro.png"
+                        style={{
+                          height: 120,
+                          minWidth: 250,
+                          objectFit: "contain",
+                        }}
+                        className="mapimage"
+                      />
                     </CardMedia>
                     <CardContent>
-                      <p style={{fontSize: 12, textAlign: 'center'}}>A map showing  submitted votes in various polling stations</p>
+                      <p style={{ fontSize: 12, textAlign: "center" }}>
+                        A map showing submitted votes in various polling
+                        stations
+                      </p>
                     </CardContent>
                   </Card>
                   <Card>
-                  <CardMedia>
-                      <img src="kumasimap.png" style={{height: 120, minWidth: 250 ,objectFit:'contain' }} className="mapimage" />
+                    <CardMedia>
+                      <img
+                        src="kumasimap.png"
+                        style={{
+                          height: 120,
+                          minWidth: 250,
+                          objectFit: "contain",
+                        }}
+                        className="mapimage"
+                      />
                     </CardMedia>
                     <CardContent>
                       <center>
-                      <p>KUMASI DEMOGRAPGY</p>
-                        </center>
-                    </CardContent>
-                  </Card> 
-                  <Card>
-                  <CardMedia sx={{ height: 120 }} image="kumasimap.png"   />
-                    <CardContent>
-                    <center>
-                      <p>KUMASI DEMOGRAPGY</p>
-                        </center>
+                        <p>KUMASI DEMOGRAPGY</p>
+                      </center>
                     </CardContent>
                   </Card>
-                  
+                  <Card>
+                    <CardMedia sx={{ height: 120 }} image="kumasimap.png" />
+                    <CardContent>
+                      <center>
+                        <p>KUMASI DEMOGRAPGY</p>
+                      </center>
+                    </CardContent>
+                  </Card>
                 </div>
                 <Card sx={{ width: { xs: `100%`, sm: `70%` } }}>
                   <CardContent className="flex-container column gap-10">
                     <div className="headlines space-between flex-container">
-                      <p style={{fontSize:12}}>Report from polling station</p>
-                      <Link to={'/view-reports'} style={{fontSize: 12}}>
+                      <p style={{ fontSize: 12 }}>
+                        Report from polling station
+                      </p>
+                      <Link to={"/view-reports"} style={{ fontSize: 12 }}>
                         View all
                       </Link>
                     </div>
                     <br />
-                    <div >
-                    <AvatarList avatarimage={'Bawumia.jpeg'} avatarname={'Bawimia'} avatarmessage={'Reporting live from Manhyia south polling station....'}/>
-                  <AvatarList avatarimage={'Bawumia.jpeg'} avatarname={'Bawimia'} avatarmessage={'Reporting live from Manhyia south polling station....'}/>
-                  <AvatarList avatarimage={'Bawumia.jpeg'} avatarname={'Bawimia'} avatarmessage={'Reporting live from Manhyia south polling station....'}/>
-                  <AvatarList avatarimage={'Bawumia.jpeg'} avatarname={'Bawimia'} avatarmessage={'Reporting live from Manhyia south polling station....'}/>
+                    <div>
+                      <AvatarList
+                        avatarimage={"Bawumia.jpeg"}
+                        avatarname={"Bawimia"}
+                        avatarmessage={
+                          "Reporting live from Manhyia south polling station...."
+                        }
+                      />
+                      <AvatarList
+                        avatarimage={"Bawumia.jpeg"}
+                        avatarname={"Bawimia"}
+                        avatarmessage={
+                          "Reporting live from Manhyia south polling station...."
+                        }
+                      />
+                      <AvatarList
+                        avatarimage={"Bawumia.jpeg"}
+                        avatarname={"Bawimia"}
+                        avatarmessage={
+                          "Reporting live from Manhyia south polling station...."
+                        }
+                      />
+                      <AvatarList
+                        avatarimage={"Bawumia.jpeg"}
+                        avatarname={"Bawimia"}
+                        avatarmessage={
+                          "Reporting live from Manhyia south polling station...."
+                        }
+                      />
                     </div>
-                  
                   </CardContent>
                 </Card>
               </div>
-              <div className="cumulativechart">
-
-              <CumulativeChart/>
+              <br />
+              <Card>
+                <CardContent>
+                <p>Votes Acceleration Graph</p>
+                <div className="cumulativechart ">
+                <CumulativeChart />
               </div>
+                </CardContent>
+              </Card>
+             
             </div>
           </CardContent>
         </Card>
