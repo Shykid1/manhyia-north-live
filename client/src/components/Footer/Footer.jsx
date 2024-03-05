@@ -22,7 +22,7 @@ function Footer() {
   return (
     <>
       <div className="footer center flex-container gap-10 column">
-        <img src="footerlogo.png" alt="" />
+        <img src="/footerlogo.png" alt="" />
         <h4>powered by namibra.inc</h4>
         <p>connect with us </p>
 

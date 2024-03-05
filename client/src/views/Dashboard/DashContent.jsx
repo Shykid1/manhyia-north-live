@@ -139,7 +139,7 @@ function DashboardContent() {
                   <Card>
                     <CardMedia>
                       <img
-                        src="kumasimetro.png"
+                        src="/kumasimetro.png"
                         style={{
                           height: 120,
                           minWidth: 250,
@@ -158,7 +158,7 @@ function DashboardContent() {
                   <Card>
                     <CardMedia>
                       <img
-                        src="kumasimap.png"
+                        src="/kumasimap.png"
                         style={{
                           height: 120,
                           minWidth: 250,
@@ -174,7 +174,7 @@ function DashboardContent() {
                     </CardContent>
                   </Card>
                   <Card>
-                    <CardMedia sx={{ height: 120 }} image="kumasimap.png" />
+                    <CardMedia sx={{ height: 120 }} image="/kumasimap.png" />
                     <CardContent>
                       <center>
                         <p>KUMASI DEMOGRAPGY</p>
@@ -195,28 +195,28 @@ function DashboardContent() {
                     <br />
                     <div>
                       <AvatarList
-                        avatarimage={"Bawumia.jpeg"}
+                        avatarimage={"/Bawumia.jpeg"}
                         avatarname={"Bawimia"}
                         avatarmessage={
                           "Reporting live from Manhyia south polling station...."
                         }
                       />
                       <AvatarList
-                        avatarimage={"Bawumia.jpeg"}
+                        avatarimage={"/Bawumia.jpeg"}
                         avatarname={"Bawimia"}
                         avatarmessage={
                           "Reporting live from Manhyia south polling station...."
                         }
                       />
                       <AvatarList
-                        avatarimage={"Bawumia.jpeg"}
+                        avatarimage={"/Bawumia.jpeg"}
                         avatarname={"Bawimia"}
                         avatarmessage={
                           "Reporting live from Manhyia south polling station...."
                         }
                       />
                       <AvatarList
-                        avatarimage={"Bawumia.jpeg"}
+                        avatarimage={"/Bawumia.jpeg"}
                         avatarname={"Bawimia"}
                         avatarmessage={
                           "Reporting live from Manhyia south polling station...."
@@ -229,13 +229,12 @@ function DashboardContent() {
               <br />
               <Card>
                 <CardContent>
-                <p>Votes Acceleration Graph</p>
-                <div className="cumulativechart ">
-                <CumulativeChart />
-              </div>
+                  <p>Votes Acceleration Graph</p>
+                  <div className="cumulativechart ">
+                    <CumulativeChart />
+                  </div>
                 </CardContent>
               </Card>
-             
             </div>
           </CardContent>
         </Card>
