@@ -1,14 +1,15 @@
-import {ProgressBars,SubProgressBars} from "../../components/ProgressBar";
+import { ProgressBars, SubProgressBars } from "../../components/ProgressBar";
 import { FaUserTie } from "react-icons/fa";
 import { MdHowToVote } from "react-icons/md";
 import { FaFlag } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 function HomeContent() {
   return (
     <>
       <div className="liverecords flex-container space-evenly">
         <div className="recorddetail flex-container column">
-          <MdHowToVote className="icons"  icon/>
+          <MdHowToVote className="icons" icon />
           <p className="subrecordstxt">137</p>
           <p className="mainrecordstxt">polling stations</p>
         </div>
@@ -38,36 +39,42 @@ function HomeContent() {
 
         <br />
         <div className="knowthem flex-container width-100 space-evenly">
-          <div className="recorddetail flex-container column ">
-            <img
-              src="Mahama.jpeg"
-              alt=""
-              className="knowthemimg margin-bottom-10"
-            />
-            <h4>JOHN DRAMANI MAHAMA </h4>
-            <h5>NDC</h5>
-            <h5>65</h5>
-          </div>
-          <div className="recorddetail flex-container column ">
-            <img
-              src="Bawumia.jpeg"
-              alt=""
-              className="knowthemimg margin-bottom-10"
-            />
-            <h4>DR. ALHAJI MAHAMADU BAWUMIA </h4>
-            <h5>NPP</h5>
-            <h5>60</h5>
-          </div>
-          <div className="recorddetail flex-container column ">
-            <img
-              src="NanaKwame.png"
-              alt=""
-              className="knowthemimg margin-bottom-10"
-            />
-            <h4>NANA KWAME BEDIAKO </h4>
-            <h5>New force</h5>
-            <h5>43</h5>
-          </div>
+          <Link to="/candidate-profile">
+            <div className="recorddetail flex-container column ">
+              <img
+                src="Mahama.jpeg"
+                alt=""
+                className="knowthemimg margin-bottom-10"
+              />
+              <h4>JOHN DRAMANI MAHAMA </h4>
+              <h5>NDC</h5>
+              <h5>65</h5>
+            </div>
+          </Link>
+          <Link to="/candidate-profile">
+            <div className="recorddetail flex-container column ">
+              <img
+                src="Bawumia.jpeg"
+                alt=""
+                className="knowthemimg margin-bottom-10"
+              />
+              <h4>DR. ALHAJI MAHAMADU BAWUMIA </h4>
+              <h5>NPP</h5>
+              <h5>60</h5>
+            </div>
+          </Link>
+          <Link to="/candidate-profile">
+            <div className="recorddetail flex-container column ">
+              <img
+                src="NanaKwame.png"
+                alt=""
+                className="knowthemimg margin-bottom-10"
+              />
+              <h4>NANA KWAME BEDIAKO </h4>
+              <h5>New force</h5>
+              <h5>43</h5>
+            </div>
+          </Link>
         </div>
         <br />
         <br />
@@ -103,7 +110,7 @@ function HomeContent() {
             </div>
           </div>
           <div className="progressbars">
-          <ProgressBars progress1={45} progress2={50} progress3={35} />
+            <ProgressBars progress1={45} progress2={50} progress3={35} />
           </div>
 
           <br />
@@ -121,12 +128,14 @@ function HomeContent() {
           </div>
           <br />
           <div className="progressbars">
-            <SubProgressBars progress1={45} progress2={50}/>
+            <SubProgressBars progress1={45} progress2={50} />
           </div>
         </div>
         <br />
         <br />
-        <center><h4 className="stylishname">Live From The Grounds</h4></center>
+        <center>
+          <h4 className="stylishname">Live From The Grounds</h4>
+        </center>
         <br />
         <br />
       </div>

@@ -11,6 +11,7 @@ import VoteResults from "./views/Dashboard/Results/Results";
 import AgentInfo from "./views/Dashboard/AgentInfo/AgentInfo";
 import DashPaliamentary from "./views/Dashboard/Paliamentary/DashPaliamentary";
 import DashPresidential from "./views/Dashboard/Presidential/DashPresidential";
+import CandidateProfile from "./views/CandidateProfile/CandidateProfile";
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
           <Route path="presidential" element={<Presidential />} />
           <Route path="paliamentary" element={<Paliamentary />} />
           <Route path="login" element={<Login />} />
+          <Route path="candidate-profile" element={<CandidateProfile />} />
         </Route>
       </Routes>
       <Footer />
