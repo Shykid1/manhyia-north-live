@@ -35,6 +35,10 @@
     {
       "src": "/dashboard/paliamentary",
       "dest": "/"
+    },
+    {
+      "src": "/dashboard/votes",
+      "dest": "/"
     }
   ]
 }

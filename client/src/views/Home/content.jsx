@@ -9,7 +9,7 @@ function HomeContent() {
     <>
       <div className="liverecords flex-container space-evenly">
         <div className="recorddetail flex-container column">
-          <MdHowToVote className="icons" icon />
+          <MdHowToVote className="icons" />
           <p className="subrecordstxt">137</p>
           <p className="mainrecordstxt">polling stations</p>
         </div>
