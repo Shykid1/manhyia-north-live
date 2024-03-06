@@ -18,6 +18,8 @@ const Navbar = () => {
     "/dashboard/results",
     "/dashboard/agent-info",
     "/dashboard/palimentary",
+    '/dashboard/presidential',
+
   ];
 
   if (excludedPaths.includes(location.pathname)) {

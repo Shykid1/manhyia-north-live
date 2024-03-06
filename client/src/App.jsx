@@ -10,6 +10,7 @@ import Dashboard from './views/Dashboard/Dashboard'
 import VoteResults from './views/Dashboard/Results/Results'
 import AgentInfo from './views/Dashboard/AgentInfo/AgentInfo'
 import DashboardPaliamentary from './views/Dashboard/palimentary/Palimentary'
+import DashboardPresidential from './views/Dashboard/presidential/Pesdential'
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
               <Route path="results" element={<VoteResults />} />
               <Route path="agent-info" element={<AgentInfo />} />
               <Route path="palimentary" element={<DashboardPaliamentary />} />
+              <Route path="presidential" element={<DashboardPresidential />} />
             </Route>
             <Route path="presidential" element={<Presidential />} />
             <Route path="paliamentary" element={<Paliamentary />} />
