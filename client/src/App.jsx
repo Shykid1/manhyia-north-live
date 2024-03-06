@@ -3,14 +3,14 @@ import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Home from "./views/Home";
 import Paliamentary from "./views/Paliamentary";
-import Presidential from "./views/Presidential";
+import Presidential from "./views/Presidential/Presidential";
 import Login from "./views/Auth/Login";
 import "./App.css";
 import Dashboard from "./views/Dashboard/Dashboard";
 import VoteResults from "./views/Dashboard/Results/Results";
 import AgentInfo from "./views/Dashboard/AgentInfo/AgentInfo";
 import DashPaliamentary from "./views/Dashboard/Paliamentary/DashPaliamentary";
-import DashboardPresidential from "./views/Dashboard/Presidential";
+import DashboardPresidential from "./views/Dashboard/Presidential/DashPresidential";
 import AgentForms from "./views/Dashboard/Forms/AgentForms";
 import CandidateProfile from "./views/CandidateProfile/CandidateProfile";
 
