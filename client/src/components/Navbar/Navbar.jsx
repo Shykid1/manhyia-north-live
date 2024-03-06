@@ -54,7 +54,7 @@ const Navbar = () => {
             to="/dashboard/agent-forms"
             onClick={handleToggleNavbar}
           >
-            Dashboard
+            Agent forms
           </NavLink>
           <NavLink
             className="elements"
