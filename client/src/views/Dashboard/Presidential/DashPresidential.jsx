@@ -1,5 +1,5 @@
 import CustomDrawer from "../../../components/Navbar/SideBar";
-import Presidential from "../../Presidential";
+import Presidential from "../../Presidential/Presidential";
 
 const DashPresidential = () => {
   const mainContent = <Presidential />;

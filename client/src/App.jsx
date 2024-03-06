@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Home from "./views/Home";
 import Paliamentary from "./views/Paliamentary";
-import Presidential from "./views/Presidential";
+import Presidential from "./views/Presidential/Presidential";
 import Login from "./views/Auth/Login";
 import "./App.css";
 import Dashboard from "./views/Dashboard/Dashboard";
