@@ -13,14 +13,13 @@ const Navbar = () => {
 
   const location = useLocation();
 
-
   const excludedRoutes = [
     "/dashboard",
     "/dashboard/results",
     "/dashboard/agent-info",
     "/dashboard/presidential",
     "/dashboard/parliamentary",
-    "/dashboard/agent-forms"
+    "/dashboard/votes",
   ];
 
   if (excludedRoutes.includes(location.pathname)) {
@@ -51,7 +50,7 @@ const Navbar = () => {
           </NavLink>
           <NavLink
             className="elements"
-            to="/dashboard/agent-forms"
+            to="/dashboard/votes"
             onClick={handleToggleNavbar}
           >
             Agent forms

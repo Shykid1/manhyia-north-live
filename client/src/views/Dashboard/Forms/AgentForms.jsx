@@ -1,33 +1,29 @@
-import * as React from "react";
 import {
   Box,
   Button,
   Card,
   CardHeader,
   TextField,
-  TextareaAutosize,
-  Paper,
   Table,
   TableBody,
   TableRow,
   TableCell,
-  TableFooter,
   TableHead,
 } from "@mui/material";
-import  { useState } from 'react';
+import { useState } from "react";
 import CustomDrawer from "../../../components/Navbar/SideBar";
 import SpringModal from "../../../components/modal";
 import LiveGhanaMap from "../../../components/maps/LiveGhanamap";
 
 function AgentForms() {
-    const [showWarning, setShowWarning] = useState(false);
-    const [hasSubmitted, setHasSubmitted] = useState(false);
-  
-    const handleSubmit = () => {
-      // Perform your submit logic here
-      setHasSubmitted(true);
-      setShowWarning(true);
-    };
+  const [showWarning, setShowWarning] = useState(false);
+  const [hasSubmitted, setHasSubmitted] = useState(false);
+
+  const handleSubmit = () => {
+    // Perform your submit logic here
+    setHasSubmitted(true);
+    setShowWarning(true);
+  };
   const mainContent = (
     <div
       className="flex-container column gap-20 fomscontainer"
@@ -59,7 +55,7 @@ function AgentForms() {
             }}
           >
             <TextField
-              id="outlined-electoralame-input"
+              id="outlined-electoralName-input"
               label="Electoral Name"
               type="text"
               placeholder="Electoral Name"
@@ -328,12 +324,16 @@ function AgentForms() {
             </Table>
           </Box>
         </Card>
-        <Button variant="contained" sx={{ margin: 2, width: "97% " }} onClick={handleSubmit}>
+        <Button
+          variant="contained"
+          sx={{ margin: 2, width: "97% " }}
+          onClick={handleSubmit}
+        >
           Upload
         </Button>
-        <div style={{visibility: 'hidden'}}>
-         <SpringModal showWarning={showWarning} />
-          </div>
+        <div style={{ visibility: "hidden" }}>
+          <SpringModal showWarning={showWarning} />
+        </div>
       </Box>
 
       <Card sx={{ width: { xs: "100%", sm: "100%" }, boxShadow: "none" }}>
@@ -386,15 +386,24 @@ function AgentForms() {
             multiline
             required
           />
-          <Button variant="contained" sx={{ margin: 2, width: "97% " }} >
+          <Button variant="contained" sx={{ margin: 2, width: "97% " }}>
             submit
           </Button>
-
-         
         </Box>
       </Card>
 
-      <LiveGhanaMap AhafoRegion={200} AshantiRegion={50}CentralRegion={100}EasternRegion={15}NorthRegion={150} UpperEast={78} UpperWest={45} AccraTema={90} WesternRegion={279} voltaRegion={9}/>
+      <LiveGhanaMap
+        AhafoRegion={200}
+        AshantiRegion={50}
+        CentralRegion={100}
+        EasternRegion={15}
+        NorthRegion={150}
+        UpperEast={78}
+        UpperWest={45}
+        AccraTema={90}
+        WesternRegion={279}
+        voltaRegion={9}
+      />
     </div>
   );
 
