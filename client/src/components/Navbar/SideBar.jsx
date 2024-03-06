@@ -14,7 +14,7 @@ import GroupIcon from "@mui/icons-material/Group";
 import AssessmentIcon from "@mui/icons-material/Assessment";
 import AnnouncementIcon from "@mui/icons-material/Announcement";
 import ContactSupportIcon from "@mui/icons-material/ContactSupport";
-import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -96,9 +96,9 @@ function CustomDrawer(props) {
     Overview: <DashboardIcon />,
     "Poll Centers": <BarChartIcon />,
     Votes: <HowToVoteIcon />,
-    Results: <TrendingUpIcon/>,
+    Results: <TrendingUpIcon />,
     Presidential: <PersonIcon />,
-    Palimentary: <GroupIcon />,
+    Paliamentary: <GroupIcon />,
     Analysis: <AssessmentIcon />,
     "News updates": <AnnouncementIcon />,
     "Agent info": <ContactSupportIcon />,
@@ -110,7 +110,7 @@ function CustomDrawer(props) {
     Votes: "/dashboard/votes",
     Results: "/dashboard/results",
     Presidential: "/dashboard/presidential",
-    Palimentary: "/dashboard/palimentary",
+    Paliamentary: "/dashboard/paliamentary",
     Analysis: "/dashboard/analysis",
     "News updates": "/dashboard/news-updates",
     "Agent info": "/dashboard/agent-info",
@@ -127,7 +127,7 @@ function CustomDrawer(props) {
           "Votes",
           "Results",
           "Presidential",
-          "Palimentary",
+          "Paliamentary",
           "Analysis",
           "News updates",
           "Agent info",
@@ -216,8 +216,12 @@ function CustomDrawer(props) {
         <Drawer
           variant="permanent"
           sx={{
-            display: { xs: 'none', sm: 'block' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth, background:'#73d353' },
+            display: { xs: "none", sm: "block" },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: drawerWidth,
+              background: "#73d353",
+            },
           }}
           open
         >

@@ -66,7 +66,10 @@ function VoteResults() {
             <div className="indicator"></div>
           </div>
           <div className="flex-container gap-20 resultsCard">
-            <div className="flex-container column gap-20 " style={{width: { xs: `100%`, sm: `70%` } }} >
+            <div
+              className="flex-container column gap-20 "
+              style={{ width: { xs: `100%`, sm: `70%` } }}
+            >
               <Card sx={{ width: { xs: 400, sm: 400 } }}>
                 <CardContent sx={{ padding: 0 }}>
                   <center>
@@ -147,11 +150,14 @@ function VoteResults() {
               </Card>
             </div>
 
-            <div className="flex-container column gap-20" style={{width: { xs: `100%`, sm: `70%` } }}>
+            <div
+              className="flex-container column gap-20"
+              style={{ width: { xs: `100%`, sm: `70%` } }}
+            >
               <Card sx={{ width: { xs: 400, sm: 550 } }}>
                 <CardMedia>
                   <img
-                    src="/public/kumasimetro.png"
+                    src="/kumasimetro.png"
                     style={{ height: 300, minWidth: 250, objectFit: "contain" }}
                     className="mapimage"
                   />
@@ -165,10 +171,19 @@ function VoteResults() {
 
               <br />
               <Card sx={{ width: { xs: 400, sm: 550 } }}>
-                <CardContent sx={{ padding: 0, display: 'flex',gap: 5 , flexDirection: 'column' }}>
-                <p style={{padding:'10px 10px '}}>PRESIDENTIAL WIN MARGIN AS AT 12:00AM</p>
+                <CardContent
+                  sx={{
+                    padding: 0,
+                    display: "flex",
+                    gap: 5,
+                    flexDirection: "column",
+                  }}
+                >
+                  <p style={{ padding: "10px 10px " }}>
+                    PRESIDENTIAL WIN MARGIN AS AT 12:00AM
+                  </p>
                   <div className="cumulativechart">
-                    <CumulativeChart  />
+                    <CumulativeChart />
                   </div>
                 </CardContent>
               </Card>

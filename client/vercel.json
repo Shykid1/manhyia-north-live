@@ -27,6 +27,14 @@
     {
       "src": "/dashboard/agent-info",
       "dest": "/"
+    },
+    {
+      "src": "/dashboard/presidential",
+      "dest": "/"
+    },
+    {
+      "src": "/dashboard/paliamentary",
+      "dest": "/"
     }
   ]
 }

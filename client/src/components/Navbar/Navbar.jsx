@@ -13,16 +13,13 @@ const Navbar = () => {
 
   const location = useLocation();
 
-  const excludedPaths = [
-    "/dashboard",
-    "/dashboard/results",
-    "/dashboard/agent-info",
-    "/dashboard/palimentary",
-    '/dashboard/presidential',
-
-  ];
-
-  if (excludedPaths.includes(location.pathname)) {
+  if (
+    location.pathname === "/dashboard" ||
+    location.pathname === "/dashboard/results" ||
+    location.pathname === "/dashboard/agent-info" ||
+    location.pathname === "/dashboard/presidential" ||
+    location.pathname === "/dashboard/paliamentary"
+  ) {
     return null;
   }
 
