@@ -186,6 +186,7 @@ const AgentInfo = () => {
 
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(7);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
@@ -198,6 +199,10 @@ const AgentInfo = () => {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
+
+  const filteredRows = rows.filter((row) =>
+    row.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   const mainContent = (
     <div className="flex-container column gap-20 agentInfo">
@@ -325,7 +330,6 @@ const AgentInfo = () => {
             overflow: "scroll",
             padding: 3,
           }}
-          className="Tablefooter"
         >
           <Paper
             component="form"
@@ -347,6 +351,8 @@ const AgentInfo = () => {
               }}
               placeholder="Search"
               inputProps={{ "aria-label": "search" }}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
             />
             <IconButton
               type="button"
@@ -356,12 +362,8 @@ const AgentInfo = () => {
               <SearchIcon />
             </IconButton>
           </Paper>
-
           <Table
-            sx={{
-              width: "100%",
-              height: 493.63,
-            }}
+            sx={{ width: "100%", height: 493.63 }}
             stickyHeader
             aria-label="custom pagination table"
           >
@@ -376,11 +378,11 @@ const AgentInfo = () => {
             </TableHead>
             <TableBody>
               {(rowsPerPage > 0
-                ? rows.slice(
+                ? filteredRows.slice(
                     page * rowsPerPage,
                     page * rowsPerPage + rowsPerPage
                   )
-                : rows
+                : filteredRows
               ).map((row, index) => (
                 <TableRow key={index}>
                   <TableCell>{row.name}</TableCell>
@@ -392,27 +394,18 @@ const AgentInfo = () => {
               ))}
               {emptyRows > 0 && (
                 <TableRow style={{ height: 53 * emptyRows }}>
-                  <TableCell colSpan={6} />
+                  <TableCell colSpan={5} />
                 </TableRow>
               )}
             </TableBody>
-            <TableFooter className="Tablefooter">
-              <TableRow className="Tablefooter">
+            <TableFooter>
+              <TableRow>
                 <TablePagination
-                  className="Tablefooter"
                   rowsPerPageOptions={[7, 10, 25, { label: "All", value: -1 }]}
-                  colSpan={4}
-                  count={rows.length}
+                  colSpan={5}
+                  count={filteredRows.length}
                   rowsPerPage={rowsPerPage}
                   page={page}
-                  slotProps={{
-                    select: {
-                      inputProps: {
-                        "aria-label": "rows per page",
-                      },
-                      native: true,
-                    },
-                  }}
                   onPageChange={handleChangePage}
                   onRowsPerPageChange={handleChangeRowsPerPage}
                   ActionsComponent={TablePaginationActions}
@@ -513,9 +506,8 @@ const AgentInfo = () => {
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between",
-            paddingBottom: 5
+            paddingBottom: 5,
           }}
-          
         >
           <CardHeader
             sx={{
@@ -540,7 +532,7 @@ const AgentInfo = () => {
             }}
           >
             <div className="cumulativechart">
-              <CumulativeChart  />
+              <CumulativeChart />
             </div>
           </Box>
         </Card>

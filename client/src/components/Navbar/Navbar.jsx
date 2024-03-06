@@ -13,13 +13,17 @@ const Navbar = () => {
 
   const location = useLocation();
 
-  if (
-    location.pathname === "/dashboard" ||
-    location.pathname === "/dashboard/results" ||
-    location.pathname === "/dashboard/agent-info" ||
-    location.pathname === "/dashboard/presidential" ||
-    location.pathname === "/dashboard/paliamentary"
-  ) {
+
+  const excludedRoutes = [
+    "/dashboard",
+    "/dashboard/results",
+    "/dashboard/agent-info",
+    "/dashboard/presidential",
+    "/dashboard/parliamentary",
+    "/dashboard/agent-forms"
+  ];
+
+  if (excludedRoutes.includes(location.pathname)) {
     return null;
   }
 
@@ -44,6 +48,13 @@ const Navbar = () => {
             onClick={handleToggleNavbar}
           >
             Dashboard
+          </NavLink>
+          <NavLink
+            className="elements"
+            to="/dashboard/agent-forms"
+            onClick={handleToggleNavbar}
+          >
+            Agent forms
           </NavLink>
           <NavLink
             className="elements"
