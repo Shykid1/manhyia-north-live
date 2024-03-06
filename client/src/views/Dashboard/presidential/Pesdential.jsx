@@ -4,7 +4,7 @@ import CardComponent from "../../../components/CardComponent";
 import CustomDrawer from "../../../components/Navbar/SideBar";
 import BasicBreadcrumbs from "../../../components/BreadCrumbs";
 
-const DashboardPresidential = () => {
+const Presidential = () => {
   const mainContent = (
     <div
       style={{
@@ -67,4 +67,4 @@ const DashboardPresidential = () => {
   return <CustomDrawer mainContent={mainContent} />;
 };
 
-export default DashboardPresidential;
+export default Presidential;
