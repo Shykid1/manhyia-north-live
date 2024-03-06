@@ -7,12 +7,14 @@ import { Link, useLocation } from "react-router-dom";
 
 function Footer() {
   const location = useLocation();
+  
   const excludedPaths = [
     "/dashboard",
     "/dashboard/results",
     "/dashboard/agent-info",
     "/dashboard/paliamentary",
     "/dashboard/presidential",
+    "/dashboard/agent-forms",
   ];
 
   if (excludedPaths.includes(location.pathname)) {

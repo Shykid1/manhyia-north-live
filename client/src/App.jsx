@@ -10,7 +10,8 @@ import Dashboard from "./views/Dashboard/Dashboard";
 import VoteResults from "./views/Dashboard/Results/Results";
 import AgentInfo from "./views/Dashboard/AgentInfo/AgentInfo";
 import DashPaliamentary from "./views/Dashboard/Paliamentary/DashPaliamentary";
-import DashPresidential from "./views/Dashboard/Presidential/DashPresidential";
+import DashboardPresidential from "./views/Dashboard/presidential/Pesdential";
+import AgentForms from "./views/Dashboard/Forms/AgentForms";
 
 const App = () => {
   return (
@@ -25,7 +26,8 @@ const App = () => {
             <Route path="results" element={<VoteResults />} />
             <Route path="agent-info" element={<AgentInfo />} />
             <Route path="paliamentary" element={<DashPaliamentary />} />
-            <Route path="presidential" element={<DashPresidential />} />
+            <Route path="presidential" element={<DashboardPresidential />} />
+            <Route path="agent-forms" element={<AgentForms />} />
           </Route>
           <Route path="presidential" element={<Presidential />} />
           <Route path="paliamentary" element={<Paliamentary />} />

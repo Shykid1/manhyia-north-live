@@ -76,6 +76,9 @@ P{
     padding: 10px;
     border: 1px solid palevioletred;
   }
+  .pd-inl-10{
+    padding-inline: 10px;
+  }
   .gap-10{
     gap: 10px;
   }
@@ -200,6 +203,13 @@ P{
     width: 100%;
     height: max-content;
   }
+  .hoveexpand{
+    transition: 0.5s;
+  }
+  .hoveexpand:hover{
+    transform: scale(1.01);
+    cursor: pointer;
+  }
   @media (max-width: 768px) {
     .mainbody{
     padding: 20px 10px;
@@ -236,5 +246,8 @@ P{
     }
     .agentInfo{
       flex-wrap: wrap;
+    }
+    .formgroups h4{
+      font-size: 15px;
     }
   }
