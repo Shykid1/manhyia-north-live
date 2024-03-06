@@ -12,6 +12,7 @@ import AgentInfo from "./views/Dashboard/AgentInfo/AgentInfo";
 import DashPaliamentary from "./views/Dashboard/Paliamentary/DashPaliamentary";
 import DashboardPresidential from "./views/Dashboard/presidential/Pesdential";
 import AgentForms from "./views/Dashboard/Forms/AgentForms";
+import CandidateProfile from "./views/CandidateProfile/CandidateProfile";
 
 const App = () => {
   return (
