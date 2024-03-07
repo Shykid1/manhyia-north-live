@@ -10,7 +10,7 @@ import Dashboard from "./views/Dashboard/Dashboard";
 import VoteResults from "./views/Dashboard/Results/Results";
 import AgentInfo from "./views/Dashboard/AgentInfo/AgentInfo";
 import DashPaliamentary from "./views/Dashboard/Paliamentary/DashPaliamentary";
-import DashPresidential from "./views/Dashboard/presidential/DashPresidential";
+import DashPresidential from "./views/Dashboard/Presidential/DashPresidential";
 import AgentForms from "./views/Dashboard/Forms/AgentForms";
 import CandidateProfile from "./views/CandidateProfile/CandidateProfile";
 

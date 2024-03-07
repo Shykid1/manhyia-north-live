@@ -1,5 +1,17 @@
+import { Card } from "@mui/material";
+
 const CandidateProfile = () => {
-  return <div>Candidate Profile</div>;
+  return (
+    <Card
+      sx={{
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    ></Card>
+  );
 };
 
 export default CandidateProfile;
