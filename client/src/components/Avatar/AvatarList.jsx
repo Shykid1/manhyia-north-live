@@ -5,8 +5,7 @@ import Divider from "@mui/material/Divider";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
-import PropTypes from 'prop-types';
-
+import PropTypes from "prop-types";
 
 export default function AvatarList({ avatarimage, avatarname, avatarmessage }) {
   return (
@@ -17,22 +16,16 @@ export default function AvatarList({ avatarimage, avatarname, avatarmessage }) {
         </ListItemAvatar>
         <ListItemText
           primary={avatarname}
-          secondary={
-            <React.Fragment>
-              
-              {avatarmessage}
-            </React.Fragment>
-          }
+          secondary={<React.Fragment>{avatarmessage}</React.Fragment>}
         />
       </ListItem>
       <Divider variant="inset" component="li" />
-     
     </List>
   );
 }
 
 AvatarList.propTypes = {
-    avatarimage: PropTypes.number.isRequired,
-    avatarname: PropTypes.number.isRequired,
-    avatarmessage: PropTypes.number.isRequired,
-  };
+  avatarimage: PropTypes.string.isRequired,
+  avatarname: PropTypes.string.isRequired,
+  avatarmessage: PropTypes.string.isRequired,
+};

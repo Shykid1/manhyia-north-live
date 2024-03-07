@@ -69,8 +69,8 @@ function DashboardContent() {
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    {rows.map((row) => (
-                      <StyledTableRow key={row.Candidates}>
+                    {rows.map((row, index) => (
+                      <StyledTableRow key={index}>
                         <StyledTableCell component="th" scope="row">
                           {row.Candidates}
                         </StyledTableCell>
@@ -108,8 +108,8 @@ function DashboardContent() {
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    {rows.map((row) => (
-                      <StyledTableRow key={`${row.Candidates}1`}>
+                    {rows.map((row, index) => (
+                      <StyledTableRow key={`${index}1`}>
                         <StyledTableCell component="th" scope="row">
                           {row.Candidates}
                         </StyledTableCell>

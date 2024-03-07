@@ -53,7 +53,7 @@ const Navbar = () => {
             to="/dashboard/votes"
             onClick={handleToggleNavbar}
           >
-            Agent forms
+            Votes
           </NavLink>
           <NavLink
             className="elements"

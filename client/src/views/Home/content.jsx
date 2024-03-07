@@ -25,12 +25,6 @@ function HomeContent() {
         </div>
       </div>
       <div className="flex-container column width-100 mainbody ">
-        <div className="flex-container space-evenly pad-top10-bottom20 btnsindicators">
-          <button className="btnelements">Live Results</button>
-          <button className="btnelements">Party Wise</button>
-          <button className="btnelements">Polling Station</button>
-        </div>
-
         <center>
           <h1 className="pad-top10-bottom20 mainheadline">
             KNOW YOUR PRESIDENTIAL CANDIDATES
@@ -40,7 +34,10 @@ function HomeContent() {
         <br />
         <div className="knowthem flex-container width-100 space-evenly">
           <Link to="/candidate-profile">
-            <div className="recorddetail flex-container column ">
+            <div
+              className="recorddetail flex-container column "
+              style={{ color: "black" }}
+            >
               <img
                 src="Mahama.jpeg"
                 alt=""
@@ -52,7 +49,10 @@ function HomeContent() {
             </div>
           </Link>
           <Link to="/candidate-profile">
-            <div className="recorddetail flex-container column ">
+            <div
+              className="recorddetail flex-container column "
+              style={{ color: "black" }}
+            >
               <img
                 src="Bawumia.jpeg"
                 alt=""
@@ -64,7 +64,10 @@ function HomeContent() {
             </div>
           </Link>
           <Link to="/candidate-profile">
-            <div className="recorddetail flex-container column ">
+            <div
+              className="recorddetail flex-container column "
+              style={{ color: "black" }}
+            >
               <img
                 src="NanaKwame.png"
                 alt=""
@@ -110,7 +113,7 @@ function HomeContent() {
             </div>
           </div>
           <div className="progressbars">
-            <ProgressBars progress1={45} progress2={50} progress3={35} />
+            <ProgressBars progress1={50} progress2={20} progress3={30} />
           </div>
 
           <br />

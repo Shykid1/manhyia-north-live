@@ -39,6 +39,10 @@
     {
       "src": "/dashboard/votes",
       "dest": "/"
+    },
+    {
+      "src": "/candidate-profile",
+      "dest": "/"
     }
   ]
 }
