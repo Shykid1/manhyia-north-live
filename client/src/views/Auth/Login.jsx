@@ -14,7 +14,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/v1/auth/login",
+        "https://manhyia-north-live.onrender.com/api/v1/auth/login",
         { email, password }
       );
       const token = response.data.token;

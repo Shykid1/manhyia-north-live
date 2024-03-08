@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link, useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -15,7 +16,7 @@ import AssessmentIcon from "@mui/icons-material/Assessment";
 import AnnouncementIcon from "@mui/icons-material/Announcement";
 import ContactSupportIcon from "@mui/icons-material/ContactSupport";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
-
+import LogoutIcon from "@mui/icons-material/Logout";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -102,6 +103,7 @@ function CustomDrawer(props) {
     Analysis: <AssessmentIcon />,
     "News updates": <AnnouncementIcon />,
     "Agent info": <ContactSupportIcon />,
+    Logout: <LogoutIcon />,
   };
 
   const routeMap = {
@@ -114,6 +116,12 @@ function CustomDrawer(props) {
     Analysis: "/dashboard/analysis",
     "News updates": "/dashboard/news-updates",
     "Agent info": "/dashboard/agent-info",
+  };
+  const navigate = useNavigate();
+  const logout = () => {
+    localStorage.removeItem("token");
+    window.location.reload();
+    navigate("/login");
   };
 
   const drawer = (
@@ -131,20 +139,36 @@ function CustomDrawer(props) {
           "Analysis",
           "News updates",
           "Agent info",
-        ].map((text) => (
-          <NavLink
-            to={routeMap[text]}
-            style={{ textDecoration: "none", color: "black" }}
-            key={text}
-          >
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemIcon>{iconMap[text]}</ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          </NavLink>
-        ))}
+          "Logout",
+        ].map((text) =>
+          text === "Logout" ? (
+            <Link
+              onClick={logout}
+              style={{ textDecoration: "none", color: "black" }}
+              key={text}
+            >
+              <ListItem disablePadding>
+                <ListItemButton>
+                  <ListItemIcon>{iconMap[text]}</ListItemIcon>
+                  <ListItemText primary={text} />
+                </ListItemButton>
+              </ListItem>
+            </Link>
+          ) : (
+            <NavLink
+              to={routeMap[text]}
+              style={{ textDecoration: "none", color: "black" }}
+              key={text}
+            >
+              <ListItem disablePadding>
+                <ListItemButton>
+                  <ListItemIcon>{iconMap[text]}</ListItemIcon>
+                  <ListItemText primary={text} />
+                </ListItemButton>
+              </ListItem>
+            </NavLink>
+          )
+        )}
       </List>
     </div>
   );
