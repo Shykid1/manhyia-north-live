@@ -41,20 +41,7 @@ const Navbar = () => {
           <NavLink className="elements" to="/" onClick={handleToggleNavbar}>
             Home
           </NavLink>
-          <NavLink
-            className="elements"
-            to="/dashboard"
-            onClick={handleToggleNavbar}
-          >
-            Dashboard
-          </NavLink>
-          <NavLink
-            className="elements"
-            to="/dashboard/votes"
-            onClick={handleToggleNavbar}
-          >
-            Votes
-          </NavLink>
+
           <NavLink
             className="elements"
             to="/login"
