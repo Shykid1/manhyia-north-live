@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import axios from "axios";
 import {
   Box,
   Button,
@@ -29,14 +30,59 @@ import CustomDrawer from "../../../components/Navbar/SideBar";
 import "./AgentInfo.css";
 
 const AgentInfo = () => {
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [imageUrl, setImageUrl] = useState(null);
+  const [formData, setFormData] = useState({
+    image: "",
+    firstname: "",
+    latname: "",
+    othername: "",
+    email: "",
+    phone: "",
+    pollingCode: "",
+    password: "",
+  });
+  const [generatedPasword, setGeneratedPassword] = useState("");
 
-  useEffect(() => {
-    if (selectedImage) {
-      setImageUrl(URL.createObjectURL(selectedImage));
+  function generateRandomPassword() {
+    const characters =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    const passwordLength = 10;
+    let password = "";
+
+    for (let i = 0; i < passwordLength; i++) {
+      const randomIndex = Math.floor(Math.random() * characters.length);
+      password += characters.charAt(randomIndex);
     }
-  }, [selectedImage]);
+
+    return password;
+  }
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+    handleGeneratePassword();
+  };
+
+  const handleGeneratePassword = () => {
+    const newPassword = generateRandomPassword();
+    setGeneratedPassword(newPassword);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post(
+        "https://manhyia-north-live.onrender.com/api/v1/auth/register/agent",
+        formData
+      );
+
+      console.log(response.data);
+      alert("Agent created successfully");
+    } catch (error) {
+      console.error("Error creating product:", error);
+      alert("Error creating agent");
+    }
+  };
 
   function TablePaginationActions(props) {
     const theme = useTheme();
@@ -240,19 +286,16 @@ const AgentInfo = () => {
               flexDirection: "column",
               alignItems: "center",
             }}
+            onSubmit={handleSubmit}
           >
             <input
               accept="image/*"
               type="file"
               id="select-image"
+              name="image"
               style={{ display: "none" }}
-              onChange={(e) => setSelectedImage(e.target.files[0])}
+              onChange={handleChange}
             />
-            {imageUrl && selectedImage && (
-              <Box mt={2} textAlign="center" sx={{ padding: 2 }}>
-                <img src={imageUrl} alt={selectedImage.name} height="100px" />
-              </Box>
-            )}
             <label htmlFor="select-image">
               <Button
                 variant="contained"
@@ -267,56 +310,83 @@ const AgentInfo = () => {
               id="outlined-firstname-input"
               label="Firstname"
               type="text"
+              name="firstname"
               placeholder="Enter Firstname"
               multiline
               required
+              onChange={handleChange}
             />
             <TextField
               id="outlined-lastname-input"
               label="Lastname"
               type="text"
+              name="lastname"
               placeholder="Enter Lastname"
               multiline
               required
+              onChange={handleChange}
+            />
+            <TextField
+              id="outlined-lastname-input"
+              label="Othername"
+              type="text"
+              name="othername"
+              placeholder="Enter Othername"
+              multiline
+              onChange={handleChange}
             />
             <TextField
               id="outlined-email-input"
               label="Email"
               type="email"
+              name="email"
               placeholder="Enter Email"
               multiline
               required
+              onChange={handleChange}
             />
             <TextField
               id="outlined-number-input"
               label="Phone-Number"
               type="text"
+              name="phone"
               placeholder="Enter Phone-Number"
               multiline
               required
+              onChange={handleChange}
             />
             <TextField
               id="outlined-polling-input"
               label="Polling-Station Code"
               type="text"
+              name="pollingCode"
               placeholder="Enter Polling-Station Code"
               multiline
               required
+              onChange={handleChange}
             />
 
-            <Button variant="contained" sx={{ margin: 2 }}>
+            <Button
+              variant="contained"
+              sx={{ margin: 2 }}
+              onClick={handleGeneratePassword}
+            >
               Generate Password
             </Button>
 
             <TextField
               id="outlined-password-input"
               label="Password"
-              type="password"
+              type="text"
+              value={generatedPasword}
+              name="password"
               placeholder="Enter Password"
               multiline
+              readOnly
               required
+              onChange={handleChange}
             />
-            <Button variant="contained" sx={{ margin: 2 }}>
+            <Button variant="contained" sx={{ margin: 2 }} type="submit">
               Create and Send to Agent
             </Button>
           </Box>
