@@ -5,6 +5,7 @@ const agentSchema = new mongoose.Schema(
     image: {
       type: String,
       trim: true,
+      default: "",
     },
     firstname: {
       type: String,
@@ -29,8 +30,7 @@ const agentSchema = new mongoose.Schema(
       required: true,
     },
     pollingcode: {
-      type: mongoose.Types.ObjectId,
-      ref: "PollingStation",
+      type: String,
       required: true,
     },
   },
