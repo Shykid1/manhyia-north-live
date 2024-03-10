@@ -1,16 +1,18 @@
-const jwt = require('jsonwebtoken')
-const dotenv = require('dotenv')
-const asyncHandler = require('express-async-handler')
-const User = require('../models/User.model.js')
+const jwt = require("jsonwebtoken");
+const dotenv = require("dotenv");
+const asyncHandler = require("express-async-handler");
+const User = require("../models/User.model.js");
 
 dotenv.config();
 
 const protect = asyncHandler(async (req, res, next) => {
   let token;
 
-  if (req.headers.authorization && req.headers.authorization.startsWith("Bearer")) {
+  if (
+    req.headers.authorization &&
+    req.headers.authorization.startsWith("Bearer")
+  ) {
     try {
-
       // get token from the request header
       token = req.headers.authorization.split(" ")[1];
 
@@ -33,4 +35,8 @@ const protect = asyncHandler(async (req, res, next) => {
   }
 });
 
-module.exports = { protect };
+const veryfyToken = (token) => {
+  return jwt.verify(token, process.env.JWT_SECRET);
+};
+
+module.exports = { protect, veryfyToken };

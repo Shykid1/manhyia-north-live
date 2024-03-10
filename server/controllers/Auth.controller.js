@@ -2,6 +2,7 @@ const User = require("../models/User.model");
 const Admin = require("../models/Admin.model");
 const Agent = require("../models/Agent.model");
 const Polling = require("../models/Polling.model");
+const middleware = require("../middlewares/Auth.middleware");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const asyncHandler = require("express-async-handler");
@@ -172,6 +173,32 @@ exports.loginUser = asyncHandler(async (req, res) => {
       .json({ error: "An unexpected error occurred. Please try again later" });
   }
 });
+
+exports.refreshToken = async (req, res) => {
+  try {
+    const { token } = req.body;
+    const newToken = await refreshTokenService(token);
+    res.json({ newToken: newToken });
+  } catch (error) {
+    res.status(401).json({ "Invalid token": error });
+  }
+};
+
+// Refresh Token
+const refreshTokenService = async (oldToken, res, req) => {
+  const verifyToken = middleware.veryfyToken;
+  try {
+    const decodedToken = verifyToken(oldToken);
+    const user = User.findById(decodedToken._id);
+    if (!user) {
+      res.status(401).json({ message: "User not found" });
+    }
+    const newToken = generateToken(user);
+    return newToken;
+  } catch (error) {
+    res.status(500).json({ "Invalid Token:": error });
+  }
+};
 
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {

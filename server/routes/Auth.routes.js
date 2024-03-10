@@ -4,6 +4,7 @@ const { protect } = require("../middlewares/Auth.middleware");
 
 //User Login
 authRouter.post("/login", authController.loginUser);
+authRouter.post("/refresh-token", authController.refreshToken);
 
 //Create User
 authRouter.post("/register/admin", authController.createAdmin);
