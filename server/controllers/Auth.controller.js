@@ -88,12 +88,6 @@ exports.createAgent = async (req, res) => {
       role,
     });
 
-    const polling = await Polling.findOne({ pollingcode: pollingcode });
-
-    if (!polling) {
-      res.status(400).json({ message: "Invalid polling code" });
-    }
-
     // Store agent details in agent database
     const agent = await Agent.create({
       image,
@@ -101,7 +95,7 @@ exports.createAgent = async (req, res) => {
       lastname,
       othername,
       userId: newUser._id,
-      pollingcode: polling.pollingcode,
+      pollingcode
     });
 
     res.status(201).json(agent);
