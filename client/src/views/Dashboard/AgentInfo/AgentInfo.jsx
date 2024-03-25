@@ -42,6 +42,18 @@ const AgentInfo = () => {
   });
   const [generatedPasword, setGeneratedPassword] = useState("");
 
+  const getToken = () => {
+    return localStorage.getItem("token");
+  };
+
+  const axiosInstance = axios.create({
+    baseUrl: "https://manhyia-north-live.onrender.com",
+    headers: {
+      Authorization: `Bearer ${getToken}`,
+      "Content-Type": "application/json",
+    },
+  });
+
   function generateRandomPassword() {
     const characters =
       "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -71,8 +83,8 @@ const AgentInfo = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(
-        "https://manhyia-north-live.onrender.com/api/v1/auth/register/agent",
+      const response = await axiosInstance.post(
+        "/api/v1/auth/register/agent",
         formData
       );
 
