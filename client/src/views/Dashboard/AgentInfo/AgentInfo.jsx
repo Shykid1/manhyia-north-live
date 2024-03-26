@@ -40,6 +40,7 @@ const AgentInfo = () => {
     phone: "",
     pollingCode: "",
     password: "",
+    role: "Agent",
   });
   const [generatedPasword, setGeneratedPassword] = useState("");
 
