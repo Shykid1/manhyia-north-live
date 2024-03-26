@@ -27,6 +27,7 @@ import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import PropTypes from "prop-types";
 import CumulativeChart from "../../../components/charts/CumulativeChart";
 import CustomDrawer from "../../../components/Navbar/SideBar";
+import instance from "./instance";
 import "./AgentInfo.css";
 
 const AgentInfo = () => {
@@ -41,17 +42,6 @@ const AgentInfo = () => {
     password: "",
   });
   const [generatedPasword, setGeneratedPassword] = useState("");
-
-  const getToken = () => {
-    return localStorage.getItem("token");
-  };
-
-  const axiosInstance = axios.create({
-    headers: {
-      Authorization: `Bearer ${getToken}`,
-      "Content-Type": "application/json",
-    },
-  });
 
   function generateRandomPassword() {
     const characters =
@@ -82,10 +72,7 @@ const AgentInfo = () => {
     e.preventDefault();
 
     try {
-      const response = await axiosInstance.post(
-        "https://manhyia-north-live.onrender.com/api/v1/auth/register/agent",
-        formData
-      );
+      const response = await instance.post("/auth/register/agent", formData);
 
       console.log(response.data);
       alert("Agent created successfully");
