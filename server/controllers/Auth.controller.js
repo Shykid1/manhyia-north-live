@@ -58,6 +58,7 @@ exports.createAgent = async (req, res) => {
     }
 
     const {
+      image,
       firstname,
       lastname,
       othername,
@@ -95,7 +96,7 @@ exports.createAgent = async (req, res) => {
       lastname,
       othername,
       userId: newUser._id,
-      pollingcode
+      pollingcode,
     });
 
     res.status(201).json(agent);
