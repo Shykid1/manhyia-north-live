@@ -47,7 +47,6 @@ const AgentInfo = () => {
   };
 
   const axiosInstance = axios.create({
-    baseUrl: "https://manhyia-north-live.onrender.com",
     headers: {
       Authorization: `Bearer ${getToken}`,
       "Content-Type": "application/json",
@@ -84,7 +83,7 @@ const AgentInfo = () => {
 
     try {
       const response = await axiosInstance.post(
-        "/api/v1/auth/register/agent",
+        "https://manhyia-north-live.onrender.com/api/v1/auth/register/agent",
         formData
       );
 
