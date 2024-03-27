@@ -1,5 +1,4 @@
 import { useState } from "react";
-import axios from "axios";
 import {
   Box,
   Button,
@@ -34,7 +33,7 @@ const AgentInfo = () => {
   const [formData, setFormData] = useState({
     image: "",
     firstname: "",
-    latname: "",
+    lastname: "",
     othername: "",
     email: "",
     phone: "",

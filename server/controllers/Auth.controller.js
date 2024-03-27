@@ -63,6 +63,7 @@ exports.createAgent = async (req, res) => {
       lastname,
       othername,
       email,
+      phone,
       password,
       role,
       pollingcode,
@@ -95,6 +96,7 @@ exports.createAgent = async (req, res) => {
       firstname,
       lastname,
       othername,
+      phone,
       userId: newUser._id,
       pollingcode,
     });
