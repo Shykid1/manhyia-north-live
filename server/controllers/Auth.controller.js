@@ -53,28 +53,22 @@ exports.createAdmin = async (req, res) => {
 // Register an Agent
 exports.createAgent = async (req, res) => {
   try {
-    if (req.user.role !== "Admin") {
-      res.status(400).json({ message: "You are not authorized" });
-    }
-
     const {
       image,
       firstname,
       lastname,
       othername,
-      email,
       phone,
+      email,
       password,
       role,
       pollingcode,
     } = req.body;
 
-    // Check if role is set to Agent
     if (role !== "Agent") {
-      res.status(400).json({ message: "Please specify role to Agent" });
+      res.status(400).json({ message: "Please specify role to Admin" });
     }
 
-    // Check if user with the same email exist
     const userExist = await User.findOne({ email });
     if (userExist) {
       res
@@ -90,20 +84,20 @@ exports.createAgent = async (req, res) => {
       role,
     });
 
-    // Store agent details in agent database
+    // Store admin details in admin database
     const agent = await Agent.create({
       image,
       firstname,
       lastname,
       othername,
       phone,
-      userId: newUser._id,
       pollingcode,
+      userId: newUser._id,
     });
 
     res.status(201).json(agent);
   } catch (error) {
-    res.status(500).json({ error: "Failed to register Agent" });
+    res.status(500).json({ error: "Failed to register admin" });
   }
 };
 
