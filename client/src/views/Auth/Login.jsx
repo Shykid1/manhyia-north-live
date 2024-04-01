@@ -8,10 +8,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     try {
       const response = await axios.post(
         "https://manhyia-north-live.onrender.com/api/v1/auth/login",
@@ -25,6 +27,8 @@ const Login = () => {
       localStorage.setItem("token", token);
     } catch (error) {
       console.log({ error });
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -59,8 +63,13 @@ const Login = () => {
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
             <Form.Check type="checkbox" label="Remember me" />
           </Form.Group>
-          <Button variant="primary" type="submit" className="submitbt">
-            Submit
+          <Button
+            variant="primary"
+            type="submit"
+            className="submitbt"
+            disabled={isLoading}
+          >
+            {isLoading ? "Logging In" : "Submit"}
           </Button>
         </Form>
       </div>
