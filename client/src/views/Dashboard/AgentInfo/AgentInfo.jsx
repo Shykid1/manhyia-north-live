@@ -37,11 +37,12 @@ const AgentInfo = () => {
     othername: "",
     email: "",
     phone: "",
-    pollingCode: "",
+    pollingcode: "",
     password: "",
     role: "Agent",
   });
   const [generatedPasword, setGeneratedPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   function generateRandomPassword() {
     const characters =
@@ -70,6 +71,7 @@ const AgentInfo = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
 
     try {
       const response = await instance.post("/auth/register/agent", formData);
@@ -79,6 +81,8 @@ const AgentInfo = () => {
     } catch (error) {
       console.error("Error creating product:", error);
       alert("Error creating agent");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -357,7 +361,7 @@ const AgentInfo = () => {
               id="outlined-polling-input"
               label="Polling-Station Code"
               type="text"
-              name="pollingCode"
+              name="pollingcode"
               placeholder="Enter Polling-Station Code"
               multiline
               required
@@ -384,8 +388,13 @@ const AgentInfo = () => {
               required
               onChange={handleChange}
             />
-            <Button variant="contained" sx={{ margin: 2 }} type="submit">
-              Create and Send to Agent
+            <Button
+              variant="contained"
+              sx={{ margin: 2 }}
+              type="submit"
+              disabled={isLoading}
+            >
+              {isLoading ? "Creating Agent..." : "Create and Send to Agent"}
             </Button>
           </Box>
         </Card>
