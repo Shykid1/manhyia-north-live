@@ -78,6 +78,16 @@ const AgentInfo = () => {
 
       console.log(response.data);
       alert("Agent created successfully");
+      setFormData({
+        image: "",
+        firstname: "",
+        lastname: "",
+        othername: "",
+        email: "",
+        password: "",
+        phone: "",
+        pollingcode: "",
+      });
     } catch (error) {
       console.error("Error creating product:", error);
       alert("Error creating agent");
