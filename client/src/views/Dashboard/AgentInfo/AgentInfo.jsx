@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Box,
   Button,
@@ -43,6 +43,7 @@ const AgentInfo = () => {
   });
   const [generatedPasword, setGeneratedPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [users, setUsers] = useState([]);
 
   function generateRandomPassword() {
     const characters =
@@ -115,6 +116,20 @@ const AgentInfo = () => {
     const handleLastPageButtonClick = (event) => {
       onPageChange(event, Math.max(0, Math.ceil(count / rowsPerPage) - 1));
     };
+
+    //Getting User details
+    useEffect(() => {
+      const fetchUsers = async () => {
+        try {
+          const response = await instance.get("/auth/agents");
+          setUsers(response.data);
+        } catch (error) {
+          console.error("Error fetching users:", error);
+        }
+      };
+
+      fetchUsers();
+    }, []);
 
     return (
       <Box sx={{ flexShrink: 0, ml: 2.5 }}>
@@ -449,27 +464,27 @@ const AgentInfo = () => {
           >
             <TableHead sx={{ backgroundColor: "#F7B329" }}>
               <TableRow>
-                <TableCell>Name</TableCell>
-                <TableCell>Email</TableCell>
+                <TableCell>First Name</TableCell>
+                <TableCell>Last Name</TableCell>
+                <TableCell>Other Name</TableCell>
                 <TableCell>Phone Number</TableCell>
-                <TableCell>Polling Staion</TableCell>
                 <TableCell>Polling Code</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {(rowsPerPage > 0
-                ? filteredRows.slice(
+                ? users.slice(
                     page * rowsPerPage,
                     page * rowsPerPage + rowsPerPage
                   )
-                : filteredRows
-              ).map((row, index) => (
-                <TableRow key={index}>
-                  <TableCell>{row.name}</TableCell>
-                  <TableCell>{row.email}</TableCell>
-                  <TableCell>{row.phone}</TableCell>
-                  <TableCell>{row.pollingStation}</TableCell>
-                  <TableCell>{row.pollingCode}</TableCell>
+                : users
+              ).map((user) => (
+                <TableRow key={user._id}>
+                  <TableCell>{user.firstname}</TableCell>
+                  <TableCell>{user.lastname}</TableCell>
+                  <TableCell>{user.othername}</TableCell>
+                  <TableCell>{user.phone}</TableCell>
+                  <TableCell>{user.pollingcode}</TableCell>
                 </TableRow>
               ))}
               {emptyRows > 0 && (

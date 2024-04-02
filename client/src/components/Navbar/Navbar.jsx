@@ -18,7 +18,7 @@ const Navbar = () => {
     "/dashboard/results",
     "/dashboard/agent-info",
     "/dashboard/presidential",
-    "/dashboard/paliamentary",
+    "/dashboard/candidates",
     "/dashboard/votes",
   ];
 
