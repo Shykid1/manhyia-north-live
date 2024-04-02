@@ -324,7 +324,6 @@ const AgentInfo = () => {
               type="text"
               name="firstname"
               placeholder="Enter Firstname"
-              multiline
               required
               onChange={handleChange}
             />
@@ -334,17 +333,15 @@ const AgentInfo = () => {
               type="text"
               name="lastname"
               placeholder="Enter Lastname"
-              multiline
               required
               onChange={handleChange}
             />
             <TextField
-              id="outlined-lastname-input"
+              id="outlined-othername-input"
               label="Othername"
               type="text"
               name="othername"
               placeholder="Enter Othername"
-              multiline
               onChange={handleChange}
             />
             <TextField
@@ -353,7 +350,6 @@ const AgentInfo = () => {
               type="email"
               name="email"
               placeholder="Enter Email"
-              multiline
               required
               onChange={handleChange}
             />
@@ -363,7 +359,6 @@ const AgentInfo = () => {
               type="text"
               name="phone"
               placeholder="Enter Phone-Number"
-              multiline
               required
               onChange={handleChange}
             />
@@ -373,7 +368,6 @@ const AgentInfo = () => {
               type="text"
               name="pollingcode"
               placeholder="Enter Polling-Station Code"
-              multiline
               required
               onChange={handleChange}
             />
@@ -393,7 +387,6 @@ const AgentInfo = () => {
               value={generatedPasword}
               name="password"
               placeholder="Enter Password"
-              multiline
               readOnly
               required
               onChange={handleChange}
