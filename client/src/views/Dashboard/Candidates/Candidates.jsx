@@ -115,6 +115,11 @@ const DashPaliamentary = () => {
               multiline
               required
             />
+            <Button
+              varient="contained"
+              sx={{ margin: 2 }}
+              type="submit"
+            ></Button>
           </Box>
         </Card>
       </div>
