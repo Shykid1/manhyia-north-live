@@ -107,11 +107,11 @@ const DashPaliamentary = () => {
               required
             />
             <TextField
-              id="outlined-manifesto-input"
-              label="Manifesto"
+              id="outlined-candidacy-input"
+              label="Candidacy"
               type="text"
-              name="manifesto"
-              placeholder="Enter Manifesto"
+              name="candidacy"
+              placeholder="Enter Candidate Type"
               multiline
               required
             />
