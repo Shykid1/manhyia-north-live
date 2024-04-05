@@ -154,7 +154,7 @@ const DashPaliamentary = () => {
               onChange={handleChange}
             />
             <Button
-              varient="contained"
+              variant="contained"
               sx={{ margin: 2 }}
               type="submit"
               disabled={isLoading}
