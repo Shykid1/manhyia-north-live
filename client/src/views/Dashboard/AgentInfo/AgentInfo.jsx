@@ -26,7 +26,7 @@ import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import PropTypes from "prop-types";
 import CumulativeChart from "../../../components/charts/CumulativeChart";
 import CustomDrawer from "../../../components/Navbar/SideBar";
-import instance from "./instance";
+import instance from "../../../utils/instance";
 import "./AgentInfo.css";
 
 const AgentInfo = () => {
@@ -79,18 +79,8 @@ const AgentInfo = () => {
 
       console.log(response.data);
       alert("Agent created successfully");
-      setFormData({
-        image: "",
-        firstname: "",
-        lastname: "",
-        othername: "",
-        email: "",
-        password: "",
-        phone: "",
-        pollingcode: "",
-      });
     } catch (error) {
-      console.error("Error creating product:", error);
+      console.error("Error creating agent:", error);
       alert("Error creating agent");
     } finally {
       setIsLoading(false);
