@@ -37,7 +37,8 @@ const DashPaliamentary = () => {
       console.log(response.data);
       alert("Candidate created successfully");
     } catch (error) {
-      console.error("Error creating camdidate", error);
+      console.error("Error creating candidate", error);
+      alert("Error creating candidate");
     } finally {
       setIsLoading(false);
     }
