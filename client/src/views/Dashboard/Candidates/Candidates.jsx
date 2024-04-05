@@ -38,6 +38,8 @@ const DashPaliamentary = () => {
       alert("Candidate created successfully");
     } catch (error) {
       console.error("Error creating camdidate", error);
+    } finally {
+      setIsLoading(false);
     }
   };
   const mainContent = (
