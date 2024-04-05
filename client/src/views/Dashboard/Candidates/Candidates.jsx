@@ -130,7 +130,7 @@ const DashPaliamentary = () => {
               id="outlined-bio-input"
               label="BIO"
               type="text"
-              name="bio"
+              name="biography"
               placeholder="Enter Biography"
               multiline
               required
