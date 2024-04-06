@@ -153,8 +153,8 @@ const DashPaliamentary = () => {
     setPage(0);
   };
 
-  const filteredRows = candidates.filter((row) =>
-    row.name.toLowerCase().includes(searchQuery.toLowerCase())
+  const filteredRows = candidates.filter((candidate) =>
+    candidate.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   const mainContent = (
@@ -345,7 +345,13 @@ const DashPaliamentary = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {candidates.map((candidate) => (
+              {(rowsPerPage > 0
+                ? candidates.slice(
+                    page * rowsPerPage,
+                    page * rowsPerPage + rowsPerPage
+                  )
+                : candidates
+              ).map((candidate) => (
                 <TableRow key={candidate._id}>
                   <TableCell>{candidate.fullname}</TableCell>
                   <TableCell>{candidate.party}</TableCell>
@@ -442,7 +448,13 @@ const DashPaliamentary = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {candidates.map((candidate) => (
+              {(rowsPerPage > 0
+                ? candidates.slice(
+                    page * rowsPerPage,
+                    page * rowsPerPage + rowsPerPage
+                  )
+                : candidates
+              ).map((candidate) => (
                 <TableRow key={candidate._id}>
                   <TableCell>{candidate.fullname}</TableCell>
                   <TableCell>{candidate.party}</TableCell>
