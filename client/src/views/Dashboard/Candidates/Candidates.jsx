@@ -3,12 +3,28 @@ import {
   Button,
   Card,
   CardHeader,
+  IconButton,
+  InputBase,
+  Paper,
+  Table,
+  TableBody,
+  TableCell,
+  TableFooter,
+  TableHead,
+  TablePagination,
+  TableRow,
   TextField,
   Typography,
+  useTheme,
 } from "@mui/material";
-import { useState } from "react";
+import SearchIcon from "@mui/icons-material/Search";
+import FirstPageIcon from "@mui/icons-material/FirstPage";
+import LastPageIcon from "@mui/icons-material/LastPage";
+import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
+import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
+import PropTypes from "prop-types";
+import { useEffect, useState } from "react";
 import CustomDrawer from "../../../components/Navbar/SideBar";
-import Paliamentary from "../../Paliamentary";
 import instance from "../../../utils/instance";
 
 const DashPaliamentary = () => {
@@ -23,6 +39,8 @@ const DashPaliamentary = () => {
     manifesto: "",
     candidacy: "",
   });
+
+  const [candidates, setCandidates] = useState([]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -43,6 +61,110 @@ const DashPaliamentary = () => {
       setIsLoading(false);
     }
   };
+
+  //Get all Candidates
+  useEffect(() => {
+    const fetchCandidates = async () => {
+      try {
+        const response = await instance.get("/candidate");
+        setCandidates(response.data);
+      } catch (error) {
+        console.error("Error fetching candidates:", error);
+      }
+    };
+
+    fetchCandidates();
+  }, []);
+
+  function TablePaginationActions(props) {
+    const theme = useTheme();
+    const { count, page, rowsPerPage, onPageChange } = props;
+
+    const handleFirstPageButtonClick = (event) => {
+      onPageChange(event, 0);
+    };
+
+    const handleBackButtonClick = (event) => {
+      onPageChange(event, page - 1);
+    };
+
+    const handleNextButtonClick = (event) => {
+      onPageChange(event, page + 1);
+    };
+
+    const handleLastPageButtonClick = (event) => {
+      onPageChange(event, Math.max(0, Math.ceil(count / rowsPerPage) - 1));
+    };
+
+    return (
+      <Box sx={{ flexShrink: 0, ml: 2.5 }}>
+        <IconButton
+          onClick={handleFirstPageButtonClick}
+          disabled={page === 0}
+          aria-label="first page"
+        >
+          {theme.direction === "rtl" ? <LastPageIcon /> : <FirstPageIcon />}
+        </IconButton>
+        <IconButton
+          onClick={handleBackButtonClick}
+          disabled={page === 0}
+          aria-label="previous page"
+        >
+          {theme.direction === "rtl" ? (
+            <KeyboardArrowRight />
+          ) : (
+            <KeyboardArrowLeft />
+          )}
+        </IconButton>
+        <IconButton
+          onClick={handleNextButtonClick}
+          disabled={page >= Math.ceil(count / rowsPerPage) - 1}
+          aria-label="next page"
+        >
+          {theme.direction === "rtl" ? (
+            <KeyboardArrowLeft />
+          ) : (
+            <KeyboardArrowRight />
+          )}
+        </IconButton>
+        <IconButton
+          onClick={handleLastPageButtonClick}
+          disabled={page >= Math.ceil(count / rowsPerPage) - 1}
+          aria-label="last page"
+        >
+          {theme.direction === "rtl" ? <FirstPageIcon /> : <LastPageIcon />}
+        </IconButton>
+      </Box>
+    );
+  }
+
+  TablePaginationActions.propTypes = {
+    count: PropTypes.number.isRequired,
+    onPageChange: PropTypes.func.isRequired,
+    page: PropTypes.number.isRequired,
+    rowsPerPage: PropTypes.number.isRequired,
+  };
+
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(7);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const emptyRows =
+    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - candidates.length) : 0;
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
+  };
+
+  const filteredRows = candidates.filter((row) =>
+    row.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   const mainContent = (
     <div className="flex-container column gap-20">
       <div className="flex-container space-between gap-20">
@@ -165,6 +287,213 @@ const DashPaliamentary = () => {
               {isLoading ? "Creating Candidate..." : "Create Candidate"}
             </Button>
           </Box>
+        </Card>
+
+        <Card
+          sx={{
+            textAlign: "center",
+            alignContent: "center",
+            width: { xs: 450, m: 680 },
+            overflow: "scroll",
+            padding: 3,
+          }}
+        >
+          <CardHeader
+            sx={{
+              bgcolor: "#4B91EC",
+              color: "#ffff",
+              fontSize: 12,
+              padding: 2,
+            }}
+            title="Presidential Candidates"
+          />
+          <Paper
+            component="form"
+            sx={{
+              p: "2px 4px",
+              display: "flex",
+              alignItems: "center",
+              backgroundColor: "#efefef",
+              width: "100%",
+            }}
+          >
+            <InputBase
+              sx={{
+                ml: 1,
+                flex: 1,
+                backgroundColor: "#efefef",
+                padding: "7px",
+                borderRadius: "5px",
+              }}
+              placeholder="Search"
+              inputProps={{ "aria-label": "search" }}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <IconButton
+              type="button"
+              sx={{ p: "10px", boxShadow: "none" }}
+              aria-label="search"
+            >
+              <SearchIcon />
+            </IconButton>
+          </Paper>
+          <Table
+            sx={{ width: "100%", height: 493.63 }}
+            stickyHeader
+            aria-label="custom pagination table"
+          >
+            <TableHead sx={{ backgroundColor: "#f7b329" }}>
+              <TableRow>
+                <TableCell>Full Name</TableCell>
+                <TableCell>Party</TableCell>
+                <TableCell>Age</TableCell>
+                <TableCell>Manifesto</TableCell>
+                <TableCell>Biography</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {candidates.candidacy == "Presidential"
+                ? (rowsPerPage > 0
+                    ? candidates.slice(
+                        page * rowsPerPage,
+                        page * rowsPerPage + rowsPerPage
+                      )
+                    : candidates
+                  ).map((candidate) => (
+                    <TableRow key={candidate._id}>
+                      <TableCell>{candidate.fullname}</TableCell>
+                      <TableCell>{candidate.party}</TableCell>
+                      <TableCell>{candidate.age}</TableCell>
+                      <TableCell>{candidate.manifesto}</TableCell>
+                      <TableCell>{candidate.biography}</TableCell>
+                    </TableRow>
+                  ))
+                : null}
+              {emptyRows > 0 && (
+                <TableRow syle={{ height: 53 * emptyRows }}>
+                  <TableCell colSpan={5} />
+                </TableRow>
+              )}
+            </TableBody>
+            <TableFooter>
+              <TableRow>
+                <TablePagination
+                  rowsPerPageOptions={[7, 10, 25, { label: "All", value: -1 }]}
+                  colSpan={5}
+                  count={filteredRows.length}
+                  rowsPerPage={rowsPerPage}
+                  page={page}
+                  onPageChange={handleChangePage}
+                  onRowsPerPageChange={handleChangeRowsPerPage}
+                  ActionsComponent={TablePaginationActions}
+                />
+              </TableRow>
+            </TableFooter>
+          </Table>
+        </Card>
+        <Card
+          sx={{
+            textAlign: "center",
+            alignContent: "center",
+            width: { xs: 450, m: 680 },
+            overflow: "scroll",
+            padding: 3,
+          }}
+        >
+          <CardHeader
+            sx={{
+              bgcolor: "#4B91EC",
+              color: "#ffff",
+              fontSize: 12,
+              padding: 2,
+            }}
+            title="Parliamentary Candidates"
+          />
+          <Paper
+            component="form"
+            sx={{
+              p: "2px 4px",
+              display: "flex",
+              alignItems: "center",
+              backgroundColor: "#efefef",
+              width: "100%",
+            }}
+          >
+            <InputBase
+              sx={{
+                ml: 1,
+                flex: 1,
+                backgroundColor: "#efefef",
+                padding: "7px",
+                borderRadius: "5px",
+              }}
+              placeholder="Search"
+              inputProps={{ "aria-label": "search" }}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <IconButton
+              type="button"
+              sx={{ p: "10px", boxShadow: "none" }}
+              aria-label="search"
+            >
+              <SearchIcon />
+            </IconButton>
+          </Paper>
+          <Table
+            sx={{ width: "100%", height: 493.63 }}
+            stickyHeader
+            aria-label="custom pagination table"
+          >
+            <TableHead sx={{ backgroundColor: "#f7b329" }}>
+              <TableRow>
+                <TableCell>Full Name</TableCell>
+                <TableCell>Party</TableCell>
+                <TableCell>Age</TableCell>
+                <TableCell>Manifesto</TableCell>
+                <TableCell>Biography</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {candidates.candidacy == "Paliamentary"
+                ? (rowsPerPage > 0
+                    ? candidates.slice(
+                        page * rowsPerPage,
+                        page * rowsPerPage + rowsPerPage
+                      )
+                    : candidates
+                  ).map((candidate) => (
+                    <TableRow key={candidate._id}>
+                      <TableCell>{candidate.fullname}</TableCell>
+                      <TableCell>{candidate.party}</TableCell>
+                      <TableCell>{candidate.age}</TableCell>
+                      <TableCell>{candidate.manifesto}</TableCell>
+                      <TableCell>{candidate.biography}</TableCell>
+                    </TableRow>
+                  ))
+                : null}
+              {emptyRows > 0 && (
+                <TableRow syle={{ height: 53 * emptyRows }}>
+                  <TableCell colSpan={5} />
+                </TableRow>
+              )}
+            </TableBody>
+            <TableFooter>
+              <TableRow>
+                <TablePagination
+                  rowsPerPageOptions={[7, 10, 25, { label: "All", value: -1 }]}
+                  colSpan={5}
+                  count={filteredRows.length}
+                  rowsPerPage={rowsPerPage}
+                  page={page}
+                  onPageChange={handleChangePage}
+                  onRowsPerPageChange={handleChangeRowsPerPage}
+                  ActionsComponent={TablePaginationActions}
+                />
+              </TableRow>
+            </TableFooter>
+          </Table>
         </Card>
       </div>
     </div>

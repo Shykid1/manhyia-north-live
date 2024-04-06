@@ -3,8 +3,16 @@ import { FaUserTie } from "react-icons/fa";
 import { MdHowToVote } from "react-icons/md";
 import { FaFlag } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import fetchCandidates from "../../utils/fetch";
+import { useState, useEffect } from "react";
 
 function HomeContent() {
+  const [candidates, setCandidates] = useState([]);
+
+  useEffect(() => {
+    fetchCandidates(setCandidates);
+  }, []);
+  const limitedCandidates = candidates.slice(0, 3);
   return (
     <>
       <div className="liverecords flex-container space-evenly">
@@ -33,51 +41,26 @@ function HomeContent() {
 
         <br />
         <div className="knowthem flex-container width-100 space-evenly">
-          <Link to="/candidate-profile">
-            <div
-              className="recorddetail flex-container column "
-              style={{ color: "black" }}
+          {limitedCandidates.map((candidate) => (
+            <Link
+              to={`/candidate-profile/${candidate._id}`}
+              key={candidate._id}
             >
-              <img
-                src="Mahama.jpeg"
-                alt=""
-                className="knowthemimg margin-bottom-10"
-              />
-              <h4>JOHN DRAMANI MAHAMA </h4>
-              <h5>NDC</h5>
-              <h5>65</h5>
-            </div>
-          </Link>
-          <Link to="/candidate-profile">
-            <div
-              className="recorddetail flex-container column "
-              style={{ color: "black" }}
-            >
-              <img
-                src="Bawumia.jpeg"
-                alt=""
-                className="knowthemimg margin-bottom-10"
-              />
-              <h4>DR. ALHAJI MAHAMADU BAWUMIA </h4>
-              <h5>NPP</h5>
-              <h5>60</h5>
-            </div>
-          </Link>
-          <Link to="/candidate-profile">
-            <div
-              className="recorddetail flex-container column "
-              style={{ color: "black" }}
-            >
-              <img
-                src="NanaKwame.png"
-                alt=""
-                className="knowthemimg margin-bottom-10"
-              />
-              <h4>NANA KWAME BEDIAKO </h4>
-              <h5>New force</h5>
-              <h5>43</h5>
-            </div>
-          </Link>
+              <div
+                className="recorddetail flex-container column "
+                style={{ color: "black" }}
+              >
+                <img
+                  src={candidate.image}
+                  alt={candidate.fullname}
+                  className="knowthemimg margin-bottom-10"
+                />
+                <h4>{candidate.fullname.upperCase()}</h4>
+                <h5>{candidate.party.upperCase()}</h5>
+                <h5>{candidate.age}</h5>
+              </div>
+            </Link>
+          ))}
         </div>
         <br />
         <br />

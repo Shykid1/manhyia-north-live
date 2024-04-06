@@ -87,6 +87,20 @@ const AgentInfo = () => {
     }
   };
 
+  //Getting User details
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const response = await instance.get("/auth/agents");
+        setUsers(response.data);
+      } catch (error) {
+        console.error("Error fetching users:", error);
+      }
+    };
+
+    fetchUsers();
+  }, []);
+
   function TablePaginationActions(props) {
     const theme = useTheme();
     const { count, page, rowsPerPage, onPageChange } = props;
@@ -477,11 +491,6 @@ const AgentInfo = () => {
                   <TableCell>{user.pollingcode}</TableCell>
                 </TableRow>
               ))}
-              {emptyRows > 0 && (
-                <TableRow style={{ height: 53 * emptyRows }}>
-                  <TableCell colSpan={5} />
-                </TableRow>
-              )}
             </TableBody>
             <TableFooter>
               <TableRow>
