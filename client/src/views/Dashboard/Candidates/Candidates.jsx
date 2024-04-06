@@ -345,23 +345,21 @@ const DashPaliamentary = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {candidates.candidacy == "Presidential"
-                ? (rowsPerPage > 0
-                    ? candidates.slice(
-                        page * rowsPerPage,
-                        page * rowsPerPage + rowsPerPage
-                      )
-                    : candidates
-                  ).map((candidate) => (
-                    <TableRow key={candidate._id}>
-                      <TableCell>{candidate.fullname}</TableCell>
-                      <TableCell>{candidate.party}</TableCell>
-                      <TableCell>{candidate.age}</TableCell>
-                      <TableCell>{candidate.manifesto}</TableCell>
-                      <TableCell>{candidate.biography}</TableCell>
-                    </TableRow>
-                  ))
-                : null}
+              {(rowsPerPage > 0
+                ? candidates.slice(
+                    page * rowsPerPage,
+                    page * rowsPerPage + rowsPerPage
+                  )
+                : candidates
+              ).map((candidate) => (
+                <TableRow key={candidate._id}>
+                  <TableCell>{candidate.fullname}</TableCell>
+                  <TableCell>{candidate.party}</TableCell>
+                  <TableCell>{candidate.age}</TableCell>
+                  <TableCell>{candidate.manifesto}</TableCell>
+                  <TableCell>{candidate.biography}</TableCell>
+                </TableRow>
+              ))}
               {emptyRows > 0 && (
                 <TableRow syle={{ height: 53 * emptyRows }}>
                   <TableCell colSpan={5} />
@@ -450,23 +448,21 @@ const DashPaliamentary = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {candidates.candidacy == "Paliamentary"
-                ? (rowsPerPage > 0
-                    ? candidates.slice(
-                        page * rowsPerPage,
-                        page * rowsPerPage + rowsPerPage
-                      )
-                    : candidates
-                  ).map((candidate) => (
-                    <TableRow key={candidate._id}>
-                      <TableCell>{candidate.fullname}</TableCell>
-                      <TableCell>{candidate.party}</TableCell>
-                      <TableCell>{candidate.age}</TableCell>
-                      <TableCell>{candidate.manifesto}</TableCell>
-                      <TableCell>{candidate.biography}</TableCell>
-                    </TableRow>
-                  ))
-                : null}
+              {(rowsPerPage > 0
+                ? candidates.slice(
+                    page * rowsPerPage,
+                    page * rowsPerPage + rowsPerPage
+                  )
+                : candidates
+              ).map((candidate) => (
+                <TableRow key={candidate._id}>
+                  <TableCell>{candidate.fullname}</TableCell>
+                  <TableCell>{candidate.party}</TableCell>
+                  <TableCell>{candidate.age}</TableCell>
+                  <TableCell>{candidate.manifesto}</TableCell>
+                  <TableCell>{candidate.biography}</TableCell>
+                </TableRow>
+              ))}
               {emptyRows > 0 && (
                 <TableRow syle={{ height: 53 * emptyRows }}>
                   <TableCell colSpan={5} />
