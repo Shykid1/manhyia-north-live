@@ -371,7 +371,7 @@ const DashPaliamentary = () => {
                 <TablePagination
                   rowsPerPageOptions={[7, 10, 25, { label: "All", value: -1 }]}
                   colSpan={5}
-                  count={filteredRows.length}
+                  //count={filteredRows.length}
                   rowsPerPage={rowsPerPage}
                   page={page}
                   onPageChange={handleChangePage}
