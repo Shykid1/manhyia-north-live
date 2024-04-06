@@ -345,13 +345,7 @@ const DashPaliamentary = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {(rowsPerPage > 0
-                ? candidates.slice(
-                    page * rowsPerPage,
-                    page * rowsPerPage + rowsPerPage
-                  )
-                : candidates
-              ).map((candidate) => (
+              {candidates.map((candidate) => (
                 <TableRow key={candidate._id}>
                   <TableCell>{candidate.fullname}</TableCell>
                   <TableCell>{candidate.party}</TableCell>
@@ -448,13 +442,7 @@ const DashPaliamentary = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {(rowsPerPage > 0
-                ? candidates.slice(
-                    page * rowsPerPage,
-                    page * rowsPerPage + rowsPerPage
-                  )
-                : candidates
-              ).map((candidate) => (
+              {candidates.map((candidate) => (
                 <TableRow key={candidate._id}>
                   <TableCell>{candidate.fullname}</TableCell>
                   <TableCell>{candidate.party}</TableCell>
