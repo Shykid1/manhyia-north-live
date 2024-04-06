@@ -153,10 +153,6 @@ const DashPaliamentary = () => {
     setPage(0);
   };
 
-  const filteredRows = candidates.filter((candidate) =>
-    candidate.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-
   const mainContent = (
     <div className="flex-container column gap-20">
       <div className="flex-container space-between gap-20">
@@ -474,7 +470,6 @@ const DashPaliamentary = () => {
                 <TablePagination
                   rowsPerPageOptions={[7, 10, 25, { label: "All", value: -1 }]}
                   colSpan={5}
-                  count={filteredRows.length}
                   rowsPerPage={rowsPerPage}
                   page={page}
                   onPageChange={handleChangePage}
