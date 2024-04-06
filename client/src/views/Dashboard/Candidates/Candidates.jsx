@@ -26,6 +26,7 @@ import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 import CustomDrawer from "../../../components/Navbar/SideBar";
 import instance from "../../../utils/instance";
+import fetchCandidates from "../../../utils/fetch";
 
 const DashPaliamentary = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -64,16 +65,7 @@ const DashPaliamentary = () => {
 
   //Get all Candidates
   useEffect(() => {
-    const fetchCandidates = async () => {
-      try {
-        const response = await instance.get("/candidate");
-        setCandidates(response.data);
-      } catch (error) {
-        console.error("Error fetching candidates:", error);
-      }
-    };
-
-    fetchCandidates();
+    fetchCandidates(setCandidates);
   }, []);
 
   function TablePaginationActions(props) {
@@ -392,6 +384,8 @@ const DashPaliamentary = () => {
             </TableFooter>
           </Table>
         </Card>
+      </div>
+      <div className="flex-container space-between agentInfo gap-20">
         <Card
           sx={{
             textAlign: "center",
