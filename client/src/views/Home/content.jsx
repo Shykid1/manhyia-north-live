@@ -55,8 +55,8 @@ function HomeContent() {
                   alt={candidate.fullname}
                   className="knowthemimg margin-bottom-10"
                 />
-                <h4>{candidate.fullname.upperCase()}</h4>
-                <h5>{candidate.party.upperCase()}</h5>
+                <h4>{candidate.fullname}</h4>
+                <h5>{candidate.party}</h5>
                 <h5>{candidate.age}</h5>
               </div>
             </Link>
