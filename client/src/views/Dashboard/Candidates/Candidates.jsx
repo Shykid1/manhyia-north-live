@@ -154,8 +154,8 @@ const DashPaliamentary = () => {
   };
 
   const mainContent = (
-    <div className="flex-container column gap-20">
-      <div className="flex-container space-between gap-20">
+    <div className="flex-container column gap-20 agentInfo">
+      <div className="flex-container space-between agentInfo gap-20">
         <Card
           sx={{
             textAlign: "center",
