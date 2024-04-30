@@ -131,7 +131,7 @@ const DashPaliamentary = () => {
   }
 
   TablePaginationActions.propTypes = {
-    count: PropTypes.number.isRequired,
+    count: PropTypes.number,
     onPageChange: PropTypes.func.isRequired,
     page: PropTypes.number.isRequired,
     rowsPerPage: PropTypes.number.isRequired,
@@ -367,7 +367,7 @@ const DashPaliamentary = () => {
                 <TablePagination
                   rowsPerPageOptions={[7, 10, 25, { label: "All", value: -1 }]}
                   colSpan={5}
-                  //count={filteredRows.length}
+                  count={rowsPerPage}
                   rowsPerPage={rowsPerPage}
                   page={page}
                   onPageChange={handleChangePage}
