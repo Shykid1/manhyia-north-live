@@ -68,6 +68,15 @@ const DashPaliamentary = () => {
     fetchCandidates(setCandidates);
   }, []);
 
+  //Filtered Presidential candidates
+  const filteredPresidential = candidates.filter(
+    (candidate) => candidate.candidacy === "Presidential"
+  );
+
+  //Filtered Parliamentary candidates
+  const filteredParliamentary = candidates.filter(
+    (candidate) => candidate.candidacy === "Paliamentary"
+  );
   function TablePaginationActions(props) {
     const theme = useTheme();
     const { count, page, rowsPerPage, onPageChange } = props;
@@ -445,11 +454,111 @@ const DashPaliamentary = () => {
             </TableHead>
             <TableBody>
               {(rowsPerPage > 0
-                ? candidates.slice(
+                ? filteredParliamentary.slice(
                     page * rowsPerPage,
                     page * rowsPerPage + rowsPerPage
                   )
-                : candidates
+                : filteredParliamentary
+              ).map((candidate) => (
+                <TableRow key={candidate._id}>
+                  <TableCell>{candidate.fullname}</TableCell>
+                  <TableCell>{candidate.party}</TableCell>
+                  <TableCell>{candidate.age}</TableCell>
+                  <TableCell>{candidate.manifesto}</TableCell>
+                  <TableCell>{candidate.biography}</TableCell>
+                </TableRow>
+              ))}
+              {emptyRows > 0 && (
+                <TableRow syle={{ height: 53 * emptyRows }}>
+                  <TableCell colSpan={5} />
+                </TableRow>
+              )}
+            </TableBody>
+            <TableFooter>
+              <TableRow>
+                <TablePagination
+                  rowsPerPageOptions={[7, 10, 25, { label: "All", value: -1 }]}
+                  colSpan={5}
+                  rowsPerPage={rowsPerPage}
+                  page={page}
+                  onPageChange={handleChangePage}
+                  onRowsPerPageChange={handleChangeRowsPerPage}
+                  ActionsComponent={TablePaginationActions}
+                />
+              </TableRow>
+            </TableFooter>
+          </Table>
+        </Card>
+        <Card
+          sx={{
+            textAlign: "center",
+            alignContent: "center",
+            width: { xs: 450, m: 680 },
+            overflow: "scroll",
+            padding: 3,
+          }}
+        >
+          <CardHeader
+            sx={{
+              bgcolor: "#4B91EC",
+              color: "#ffff",
+              fontSize: 12,
+              padding: 2,
+            }}
+            title="Parliamentary Candidates"
+          />
+          <Paper
+            component="form"
+            sx={{
+              p: "2px 4px",
+              display: "flex",
+              alignItems: "center",
+              backgroundColor: "#efefef",
+              width: "100%",
+            }}
+          >
+            <InputBase
+              sx={{
+                ml: 1,
+                flex: 1,
+                backgroundColor: "#efefef",
+                padding: "7px",
+                borderRadius: "5px",
+              }}
+              placeholder="Search"
+              inputProps={{ "aria-label": "search" }}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <IconButton
+              type="button"
+              sx={{ p: "10px", boxShadow: "none" }}
+              aria-label="search"
+            >
+              <SearchIcon />
+            </IconButton>
+          </Paper>
+          <Table
+            sx={{ width: "100%", height: 493.63 }}
+            stickyHeader
+            aria-label="custom pagination table"
+          >
+            <TableHead sx={{ backgroundColor: "#f7b329" }}>
+              <TableRow>
+                <TableCell>Full Name</TableCell>
+                <TableCell>Party</TableCell>
+                <TableCell>Age</TableCell>
+                <TableCell>Manifesto</TableCell>
+                <TableCell>Biography</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {(rowsPerPage > 0
+                ? filteredPresidential.slice(
+                    page * rowsPerPage,
+                    page * rowsPerPage + rowsPerPage
+                  )
+                : filteredPresidential
               ).map((candidate) => (
                 <TableRow key={candidate._id}>
                   <TableCell>{candidate.fullname}</TableCell>
