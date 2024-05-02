@@ -24,6 +24,14 @@ function AgentForms() {
     setHasSubmitted(true);
     setShowWarning(true);
   };
+
+  const presidential = [
+    "John Dramani Mahama",
+    "Dr. Mahamudu Bawumia",
+    "Alan John Kwadwo Kyerematen",
+    "Nana Kwame Bediako",
+  ];
+
   const mainContent = (
     <div
       className="flex-container column gap-20 fomscontainer"
@@ -118,29 +126,43 @@ function AgentForms() {
                 <TableRow>
                   <TableCell>Candidate Name</TableCell>
                   <TableCell align="center">Votes</TableCell>
+                  <TableCell align="center">Percentage</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
-                <TableRow>
-                  <TableCell>
-                    <select>
-                      <option value="">Select</option>
-                      <option value="John Mahama">John Mahama</option>
-                      <option value="Nana Addo">Nana Addo</option>
-                      <option value="Akuffo Addo">Akuffo Addo</option>
-                    </select>
-                  </TableCell>
-                  <TableCell>
-                    <TextField
-                      id="outlined-electoralame-input"
-                      label="Votes"
-                      type="text"
-                      placeholder="Votes"
-                      multiline
-                      required
-                    />
-                  </TableCell>
-                </TableRow>
+                {presidential.map((candidate) => (
+                  <TableRow key={candidate}>
+                    <TableCell>
+                      <TextField
+                        id="outlined-electoralname-input"
+                        label="Candidate Name"
+                        type="text"
+                        value={candidate}
+                        disabled
+                      />
+                    </TableCell>
+                    <TableCell>
+                      <TextField
+                        id="outlined-electoralname-input"
+                        label="Votes"
+                        type="text"
+                        placeholder="Votes"
+                        multiline
+                        required
+                      />
+                    </TableCell>
+                    <TableCell>
+                      <TextField
+                        id="outlined-electoralname-input"
+                        label="percentage"
+                        type="text"
+                        placeholder="percentage"
+                        multiline
+                        required
+                      />
+                    </TableCell>
+                  </TableRow>
+                ))}
               </TableBody>
             </Table>
           </Box>
@@ -174,24 +196,74 @@ function AgentForms() {
                 <TableRow>
                   <TableCell>Candidate Name</TableCell>
                   <TableCell align="center">Votes</TableCell>
+                  <TableCell align="center">Percentage</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
                 <TableRow>
-                  <TableCell>
-                    <select>
-                      <option value="">Select</option>
-                      <option value="John Mahama">John Mahama</option>
-                      <option value="Nana Addo">Nana Addo</option>
-                      <option value="Akuffo Addo">Akuffo Addo</option>
-                    </select>
-                  </TableCell>
+                  <TableCell>Abdul Hafis Mohammed</TableCell>
                   <TableCell>
                     <TextField
                       id="outlined-electoralame-input"
                       label="Votes"
                       type="text"
                       placeholder="Votes"
+                      multiline
+                      required
+                    />
+                  </TableCell>
+                  <TableCell>
+                    <TextField
+                      id="outlined-electoralame-input"
+                      label="percentage"
+                      type="text"
+                      placeholder="percentage"
+                      multiline
+                      required
+                    />
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Abdul Hafis Mohammed</TableCell>
+                  <TableCell>
+                    <TextField
+                      id="outlined-electoralame-input"
+                      label="Votes"
+                      type="text"
+                      placeholder="Votes"
+                      multiline
+                      required
+                    />
+                  </TableCell>
+                  <TableCell>
+                    <TextField
+                      id="outlined-electoralame-input"
+                      label="percentage"
+                      type="text"
+                      placeholder="percentage"
+                      multiline
+                      required
+                    />
+                  </TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableCell>Abdul Hafis Mohammed</TableCell>
+                  <TableCell>
+                    <TextField
+                      id="outlined-electoralame-input"
+                      label="Votes"
+                      type="text"
+                      placeholder="Votes"
+                      multiline
+                      required
+                    />
+                  </TableCell>
+                  <TableCell>
+                    <TextField
+                      id="outlined-electoralame-input"
+                      label="percentage"
+                      type="text"
+                      placeholder="percentage"
                       multiline
                       required
                     />
