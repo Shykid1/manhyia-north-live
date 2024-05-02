@@ -145,75 +145,6 @@ function AgentForms() {
                     />
                   </TableCell>
                 </TableRow>
-                <TableRow>
-                  <TableCell>Abdul Hafis Mohammed</TableCell>
-                  <TableCell>
-                    <TextField
-                      id="outlined-electoralame-input"
-                      label="Votes"
-                      type="text"
-                      placeholder="Votes"
-                      multiline
-                      required
-                    />
-                  </TableCell>
-                  <TableCell>
-                    <TextField
-                      id="outlined-electoralame-input"
-                      label="percentage"
-                      type="text"
-                      placeholder="percentage"
-                      multiline
-                      required
-                    />
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Abdul Hafis Mohammed</TableCell>
-                  <TableCell>
-                    <TextField
-                      id="outlined-electoralame-input"
-                      label="Votes"
-                      type="text"
-                      placeholder="Votes"
-                      multiline
-                      required
-                    />
-                  </TableCell>
-                  <TableCell>
-                    <TextField
-                      id="outlined-electoralame-input"
-                      label="percentage"
-                      type="text"
-                      placeholder="percentage"
-                      multiline
-                      required
-                    />
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Abdul Hafis Mohammed</TableCell>
-                  <TableCell>
-                    <TextField
-                      id="outlined-electoralame-input"
-                      label="Votes"
-                      type="text"
-                      placeholder="Votes"
-                      multiline
-                      required
-                    />
-                  </TableCell>
-                  <TableCell>
-                    <TextField
-                      id="outlined-electoralame-input"
-                      label="percentage"
-                      type="text"
-                      placeholder="percentage"
-                      multiline
-                      required
-                    />
-                  </TableCell>
-                </TableRow>
               </TableBody>
             </Table>
           </Box>
@@ -251,52 +182,6 @@ function AgentForms() {
                 </TableRow>
               </TableHead>
               <TableBody>
-                <TableRow>
-                  <TableCell>Abdul Hafis Mohammed</TableCell>
-                  <TableCell>
-                    <TextField
-                      id="outlined-electoralame-input"
-                      label="Votes"
-                      type="text"
-                      placeholder="Votes"
-                      multiline
-                      required
-                    />
-                  </TableCell>
-                  <TableCell>
-                    <TextField
-                      id="outlined-electoralame-input"
-                      label="percentage"
-                      type="text"
-                      placeholder="percentage"
-                      multiline
-                      required
-                    />
-                  </TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Abdul Hafis Mohammed</TableCell>
-                  <TableCell>
-                    <TextField
-                      id="outlined-electoralame-input"
-                      label="Votes"
-                      type="text"
-                      placeholder="Votes"
-                      multiline
-                      required
-                    />
-                  </TableCell>
-                  <TableCell>
-                    <TextField
-                      id="outlined-electoralame-input"
-                      label="percentage"
-                      type="text"
-                      placeholder="percentage"
-                      multiline
-                      required
-                    />
-                  </TableCell>
-                </TableRow>
                 <TableRow>
                   <TableCell>Abdul Hafis Mohammed</TableCell>
                   <TableCell>
