@@ -28,7 +28,7 @@ function AgentForms() {
   const presidential = [
     "John Dramani Mahama",
     "Dr. Mahamudu Bawumia",
-    "Alan John Kwadwo Kyerematen",
+    "Alan John Kwadwo Kyeremanten",
     "Nana Kwame Bediako",
   ];
 
