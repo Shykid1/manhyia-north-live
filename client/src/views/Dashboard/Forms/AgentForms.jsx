@@ -124,6 +124,7 @@ function AgentForms() {
                 <TableRow>
                   <TableCell>
                     <select>
+                      <option value="">Select</option>
                       <option value="John Mahama">John Mahama</option>
                       <option value="Nana Addo">Nana Addo</option>
                       <option value="Akuffo Addo">Akuffo Addo</option>
@@ -179,6 +180,7 @@ function AgentForms() {
                 <TableRow>
                   <TableCell>
                     <select>
+                      <option value="">Select</option>
                       <option value="John Mahama">John Mahama</option>
                       <option value="Nana Addo">Nana Addo</option>
                       <option value="Akuffo Addo">Akuffo Addo</option>
