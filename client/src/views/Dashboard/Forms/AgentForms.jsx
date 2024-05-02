@@ -134,16 +134,6 @@ function AgentForms() {
                       required
                     />
                   </TableCell>
-                  <TableCell>
-                    <TextField
-                      id="outlined-electoralame-input"
-                      label="percentage"
-                      type="text"
-                      placeholder="percentage"
-                      multiline
-                      required
-                    />
-                  </TableCell>
                 </TableRow>
               </TableBody>
             </Table>
@@ -190,16 +180,6 @@ function AgentForms() {
                       label="Votes"
                       type="text"
                       placeholder="Votes"
-                      multiline
-                      required
-                    />
-                  </TableCell>
-                  <TableCell>
-                    <TextField
-                      id="outlined-electoralame-input"
-                      label="percentage"
-                      type="text"
-                      placeholder="percentage"
                       multiline
                       required
                     />
