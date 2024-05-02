@@ -135,7 +135,6 @@ function AgentForms() {
                     <TableCell>
                       <TextField
                         id="outlined-electoralname-input"
-                        label="Candidate Name"
                         type="text"
                         value={candidate}
                         disabled
