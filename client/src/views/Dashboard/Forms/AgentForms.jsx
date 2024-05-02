@@ -118,12 +118,17 @@ function AgentForms() {
                 <TableRow>
                   <TableCell>Candidate Name</TableCell>
                   <TableCell align="center">Votes</TableCell>
-                  <TableCell align="center">Percentage</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
                 <TableRow>
-                  <TableCell>Abdul Hafis Mohammed</TableCell>
+                  <TableCell>
+                    <select>
+                      <option value="John Mahama">John Mahama</option>
+                      <option value="Nana Addo">Nana Addo</option>
+                      <option value="Akuffo Addo">Akuffo Addo</option>
+                    </select>
+                  </TableCell>
                   <TableCell>
                     <TextField
                       id="outlined-electoralame-input"
@@ -168,12 +173,17 @@ function AgentForms() {
                 <TableRow>
                   <TableCell>Candidate Name</TableCell>
                   <TableCell align="center">Votes</TableCell>
-                  <TableCell align="center">Percentage</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
                 <TableRow>
-                  <TableCell>Abdul Hafis Mohammed</TableCell>
+                  <TableCell>
+                    <select>
+                      <option value="John Mahama">John Mahama</option>
+                      <option value="Nana Addo">Nana Addo</option>
+                      <option value="Akuffo Addo">Akuffo Addo</option>
+                    </select>
+                  </TableCell>
                   <TableCell>
                     <TextField
                       id="outlined-electoralame-input"
