@@ -49,7 +49,7 @@ function LiveGhanaMap({
         <text dx="0" dy="0" font-family="&quot;eJyP3Lg6pDA1:::Roboto&quot;" font-size="8" font-weight="400"
                 transform="translate(681.643 577.592)">
                 <![CDATA[
-            Powered by SYNTHOTECH SOLUTIONS
+            Powered by SYNTHOTECH
              ]]>
             </text>
             </g>
