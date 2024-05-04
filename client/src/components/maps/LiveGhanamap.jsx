@@ -1,10 +1,18 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-
-function LiveGhanaMap({NorthRegion, UpperEast, UpperWest,AhafoRegion,AccraTema,  CentralRegion, EasternRegion, AshantiRegion, WesternRegion, voltaRegion} ) {
-    
-    const SVGMap = (
-        `<svg id="prefix__eJyP3Lg6pDA1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"
+function LiveGhanaMap({
+  NorthRegion,
+  UpperEast,
+  UpperWest,
+  AhafoRegion,
+  AccraTema,
+  CentralRegion,
+  EasternRegion,
+  AshantiRegion,
+  WesternRegion,
+  voltaRegion,
+}) {
+  const SVGMap = `<svg id="prefix__eJyP3Lg6pDA1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"
         shape-rendering="geometricPrecision" text-rendering="geometricPrecision" style="background-color:transparent">
         <g>
         <path class ='hoveexpand'
@@ -41,7 +49,7 @@ function LiveGhanaMap({NorthRegion, UpperEast, UpperWest,AhafoRegion,AccraTema, 
         <text dx="0" dy="0" font-family="&quot;eJyP3Lg6pDA1:::Roboto&quot;" font-size="10" font-weight="400"
                 transform="translate(681.643 577.592)">
                 <![CDATA[
-            Powered by Stay-Tech
+            Powered by SYNTHOTECH SOLUTIONS
              ]]>
             </text>
             </g>
@@ -213,22 +221,19 @@ Accra
     }
     ]]>
 </style>
-</svg>`
-    )
-    return ( 
-        <div dangerouslySetInnerHTML={{ __html: SVGMap }} />
-     );
+</svg>`;
+  return <div dangerouslySetInnerHTML={{ __html: SVGMap }} />;
 }
 
 LiveGhanaMap.PropTypes = {
-    NorthRegion: PropTypes.number.isRequired,
-    UpperEast: PropTypes.number.isRequired,
-    AhafoRegion: PropTypes.number.isRequired,
-    CentralRegion: PropTypes.number.isRequired,
-    EasternRegion: PropTypes.number.isRequired,
-    AshantiRegion: PropTypes.number.isRequired,
-    WesternRegion: PropTypes.number.isRequired,
-    UpperWest: PropTypes.number.isRequired
-  };
+  NorthRegion: PropTypes.number.isRequired,
+  UpperEast: PropTypes.number.isRequired,
+  AhafoRegion: PropTypes.number.isRequired,
+  CentralRegion: PropTypes.number.isRequired,
+  EasternRegion: PropTypes.number.isRequired,
+  AshantiRegion: PropTypes.number.isRequired,
+  WesternRegion: PropTypes.number.isRequired,
+  UpperWest: PropTypes.number.isRequired,
+};
 
 export default LiveGhanaMap;
